@@ -1,377 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Digital Brand Exposure — Make your brand unmissable</title>
-  <meta name="description" content="Premium video and imagery for brands that want to look established and get noticed. Showcase films, product spots, and brand image campaigns." />
-  <meta name="theme-color" content="#0c1022" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Digital Brand Exposure — Make your brand unmissable</title>
+<meta name="description" content="Premium video and imagery that make your business look unmissable. Business showcase films, product spotlights, and brand image campaigns." />
+<meta name="theme-color" content="#0b0f14" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      /* Canvas */
-      --bg:#0c1022;                 /* deep navy */
-      --ink:#f7f9fc;                /* near-white */
-      --muted:#a9b1c7;              /* soft grey-blue */
-      --line:rgba(255,255,255,.12);
+<style>
+/* =========================
+   Design Tokens
+========================= */
+:root{
+  --bg: #0b0f14;                 /* deep carbon */
+  --text: #f3f6fb;               /* near-white */
+  --muted: #9aa3b2;              /* cool grey */
+  --line: rgba(255,255,255,.10);
 
-      /* Accent palette (can be switched via JS) */
-      --c1:#7c3aed;                 /* violet */
-      --c2:#2563eb;                 /* blue */
-      --c3:#06b6d4;                 /* cyan */
-      --c4:#f43f5e;                 /* rose */
-      --grad:linear-gradient(135deg, var(--c1), var(--c2), var(--c3), var(--c4));
+  --accent-1: #00e0ff;           /* cyan */
+  --accent-2: #8b5cf6;           /* violet */
+  --accent-3: #ff4d6d;           /* coral */
+  --grad: linear-gradient(135deg, var(--accent-1), var(--accent-2));
 
-      /* Background glows (also switched via JS) */
-      --bgc1:rgba(124,58,237,.14);
-      --bgc2:rgba(37,99,235,.12);
-      --bgc3:rgba(6,182,212,.12);
+  --panel: rgba(255,255,255,.04); /* glass cards */
+  --panel-strong: rgba(255,255,255,.06);
 
-      --panel:rgba(255,255,255,.06);
-      --panel-strong:rgba(255,255,255,.08);
+  --radius: 18px;
+  --shadow: 0 20px 60px rgba(0,0,0,.35);
+  --max: 1200px;
+}
 
-      --radius:18px;
-      --shadow:0 14px 40px rgba(0,0,0,.28);
-      --max:1180px;
-    }
+/* =========================
+   Base
+========================= */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1000px 500px at 10% -10%, rgba(0,224,255,.10), transparent 55%),
+    radial-gradient(1200px 600px at 110% 0%, rgba(139,92,246,.10), transparent 55%),
+    radial-gradient(900px 600px at 50% 120%, rgba(255,77,109,.08), transparent 60%),
+    var(--bg);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--max);margin:0 auto;padding:0 22px}
 
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      color:var(--ink);
-      background:
-        radial-gradient(800px 350px at 20% 0%, var(--bgc1), transparent 60%),
-        radial-gradient(900px 400px at 100% 0%, var(--bgc2), transparent 60%),
-        radial-gradient(800px 500px at 0% 80%, var(--bgc3), transparent 65%),
-        var(--bg);
-      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-    }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
-    .center{text-align:center}
+/* =========================
+   Scroll progress
+========================= */
+#progress{
+  position:fixed; inset:0 auto auto 0; height:3px; width:0%;
+  background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3));
+  z-index:1000;
+}
 
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:50;
-      background:rgba(12,16,34,.6); backdrop-filter:saturate(180%) blur(12px);
-      border-bottom:1px solid var(--line);
-    }
-    .nav{display:grid; place-items:center; gap:8px; padding:16px 0}
-    .brand{font-weight:800; letter-spacing:-.2px}
-    .menu{display:flex; gap:22px; flex-wrap:wrap; justify-content:center}
-    .menu a{color:var(--muted); font-weight:600}
-    .menu a:hover{color:#fff}
+/* =========================
+   Header
+========================= */
+header{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter:saturate(180%) blur(12px);
+  background:rgba(11,15,20,.55);
+  border-bottom:1px solid var(--line);
+}
+.nav{height:64px; display:flex; align-items:center; justify-content:space-between; gap:16px}
+.brand{font-weight:900; letter-spacing:-.2px}
+nav{display:flex; gap:22px}
+nav a{color:var(--muted); font-weight:600}
+nav a:hover{color:#fff}
 
-    /* One hero CTA */
-    .cta{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:14px 22px; border-radius:999px; font-weight:900; letter-spacing:.1px;
-      color:#0b1020; background:var(--grad);
-      position:relative; border:1px solid rgba(255,255,255,.2);
-      box-shadow:0 10px 32px rgba(0,0,0,.35);
-      transition:transform .15s ease, filter .2s ease, box-shadow .2s ease;
-    }
-    .cta:before{
-      content:""; position:absolute; inset:-6px; border-radius:999px; filter:blur(14px);
-      background:var(--grad); opacity:.55; z-index:-1;
-      transition:opacity .2s ease, filter .2s ease;
-    }
-    .cta:hover{transform:translateY(-1px); filter:saturate(1.05); box-shadow:0 16px 40px rgba(0,0,0,.45)}
-    .cta:hover:before{opacity:.75; filter:blur(18px)}
+/* =========================
+   Hero
+========================= */
+section{padding:clamp(72px,11vw,120px) 0}
+.center{text-align:center}
+h1{margin:0; font-size: clamp(34px, 6vw, 82px); line-height:1.02; letter-spacing:-.02em}
+h2{margin:10px 0 0; font-size: clamp(18px, 2.2vw, 22px); color:var(--muted); font-weight:600}
 
-    /* Sections */
-    section{padding:clamp(62px, 9vw, 104px) 0}
-    h1,h2{margin:0}
-    h1{font-size:clamp(34px,5.2vw,60px); line-height:1.04; letter-spacing:-.02em}
-    h2{font-size:clamp(18px,2.4vw,22px); color:var(--muted); font-weight:600}
-    .accent-line{height:3px; width:100px; border-radius:999px; background:var(--grad); margin:16px auto 0}
+/* glossy gradient text */
+.gloss{
+  background: linear-gradient(180deg,#fff 0%,#dfe6ff 40%,#aeb7d6 60%,#9aa3b2 100%);
+  background-clip: text; -webkit-background-clip: text; color: transparent;
+  position:relative;
+}
+.gloss::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.45) 40%, transparent 60%);
+  transform: translateX(-120%); animation:shine 6s ease-in-out infinite;
+  background-clip:text; -webkit-background-clip:text;
+}
+@keyframes shine{ 0%,15%{transform:translateX(-120%)} 35%{transform:translateX(120%)} 100%{transform:translateX(120%)} }
 
-    /* Layout */
-    .grid{display:grid; gap:22px}
-    .two{grid-template-columns:1fr 1fr}
-    .three{grid-template-columns:repeat(3,1fr)}
-    @media (max-width:960px){ .two,.three{grid-template-columns:1fr} }
+/* parallax shapes */
+.shapes{position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:-1}
+.shape{
+  position:absolute; border-radius:50%;
+  filter:blur(60px); mix-blend:screen; opacity:.35;
+  will-change:transform;
+}
+.s1{width:42vmax;height:42vmax; left:-12%; top:-12%; background:radial-gradient(closest-side, rgba(0,224,255,.9), transparent)}
+.s2{width:36vmax;height:36vmax; right:-10%; top:-8%; background:radial-gradient(closest-side, rgba(139,92,246,.9), transparent)}
+.s3{width:40vmax;height:40vmax; left:10%; bottom:-16%; background:radial-gradient(closest-side, rgba(255,77,109,.85), transparent)}
 
-    /* Cards / tiles */
-    .card{
-      background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
-      padding:22px; box-shadow:var(--shadow); text-align:center;
-    }
-    .card h3{margin:0 0 6px; font-size:20px}
-    .card p{margin:0; color:var(--muted)}
+.cta{
+  display:inline-grid; place-items:center; margin-top:22px;
+  padding:14px 24px; border-radius:999px; font-weight:900; letter-spacing:.12px;
+  color:#071018; background:var(--grad); border:1px solid rgba(255,255,255,.2);
+  position:relative; box-shadow:0 16px 42px rgba(0,0,0,.45);
+  transition:transform .15s ease, filter .2s ease, box-shadow .2s ease;
+}
+.cta::before{
+  content:""; position:absolute; inset:-8px; border-radius:999px; filter:blur(18px);
+  background:var(--grad); opacity:.6; z-index:-1; transition:opacity .2s ease, filter .2s ease;
+}
+.cta:hover{transform:translateY(-2px); filter:saturate(1.06); box-shadow:0 22px 56px rgba(0,0,0,.55)}
+.cta:hover::before{opacity:.8; filter:blur(22px)}
 
-    .tile{
-      background:var(--panel-strong); border:1px solid var(--line);
-      border-radius:16px; overflow:hidden; box-shadow:var(--shadow); text-align:center;
-    }
-    .tile-body{display:grid; gap:8px; padding:14px 16px}
+/* =========================
+   Grid / Cards
+========================= */
+.grid{display:grid; gap:24px}
+.two{grid-template-columns:1fr 1fr}
+.three{grid-template-columns:repeat(3,1fr)}
+@media (max-width:960px){ .two,.three{grid-template-columns:1fr} }
 
-    /* Buttons (secondary) */
-    .btn-ghost{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px; border-radius:12px; border:1px solid var(--line);
-      background:transparent; color:var(--ink); font-weight:700;
-    }
-    .btn-ghost:hover{background:rgba(255,255,255,.06)}
+.card{
+  background:var(--panel); border:1px solid var(--line);
+  border-radius:var(--radius); padding:22px; text-align:center; box-shadow:var(--shadow);
+  position:relative; overflow:hidden;
+  --mx:50%; --my:50%;
+  background-image:
+    radial-gradient(200px 120px at var(--mx) var(--my), rgba(255,255,255,.08), transparent 60%);
+  transition:transform .2s ease, border-color .2s ease;
+}
+.card:hover{transform:translateY(-2px); border-color:rgba(255,255,255,.18)}
+.card h3{margin:0 0 6px; font-size:20px; letter-spacing:.1px}
+.card p{margin:0; color:var(--muted)}
+.badge{
+  display:inline-flex; gap:8px; align-items:center; justify-content:center;
+  padding:6px 12px; border-radius:999px; border:1px solid var(--line);
+  background:rgba(255,255,255,.05); color:#dfe5ff; font-weight:700; font-size:13px;
+}
+.dot{width:10px;height:10px;border-radius:50%}
 
-    /* Motion */
-    .reveal{opacity:0; transform:translateY(22px) scale(.985); filter:saturate(.9);
-            transition:opacity .8s cubic-bezier(.2,.6,.2,1), transform .8s cubic-bezier(.2,.6,.2,1), filter .8s}
-    .reveal.in{opacity:1; transform:none; filter:none}
-    .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+/* =========================
+   Past Projects: asymmetric layout
+========================= */
+.mosaic{
+  display:grid; gap:24px;
+  grid-template-columns: 1.3fr .7fr; grid-template-rows: auto;
+  grid-template-areas:
+    "big small1"
+    "big small2";
+}
+@media (max-width:960px){
+  .mosaic{grid-template-columns:1fr; grid-template-areas:"big" "small1" "small2";}
+}
+.tile{
+  background:var(--panel-strong); border:1px solid var(--line);
+  border-radius:16px; overflow:hidden; box-shadow:var(--shadow); position:relative;
+}
+.tile.big{grid-area:big}
+.tile.s1{grid-area:small1}
+.tile.s2{grid-area:small2}
+.thumb{
+  aspect-ratio:16/9; overflow:hidden; position:relative;
+  transform:translateZ(0);
+}
+.thumb > .zoom{width:100%; height:100%; transform:scale(1); transition:transform .8s cubic-bezier(.2,.6,.2,1)}
+.tile:hover .zoom{transform:scale(1.05)}
+.label{
+  position:absolute; left:16px; bottom:14px; right:16px;
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+  padding:10px 12px; border-radius:12px; background:rgba(7,16,24,.55); border:1px solid var(--line);
+  backdrop-filter: blur(6px); color:#eff3ff; font-weight:700;
+}
 
-    /* Parallax */
-    [data-parallax]{will-change:transform; transform:translateY(0)}
-    @media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none} [data-parallax]{transform:none} }
+/* =========================
+   Contact
+========================= */
+.form{
+  max-width:820px; margin-inline:auto;
+  background:var(--panel); border:1px solid var(--line);
+  border-radius:var(--radius); box-shadow:var(--shadow); padding:22px;
+}
+input, textarea{
+  width:100%; color:#fff; font:inherit; border-radius:14px;
+  border:1px solid var(--line); background:rgba(255,255,255,.08);
+  padding:14px 16px; outline:none;
+}
+input:focus, textarea:focus{border-color:rgba(255,255,255,.2)}
+.controls{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+@media (max-width:720px){ .controls{grid-template-columns:1fr} }
+.actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
 
-    /* Footer */
-    footer{padding:40px 0; border-top:1px solid var(--line); color:var(--muted)}
-    .footer-links{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+/* =========================
+   Motion
+========================= */
+.reveal{opacity:0; transform:translateY(22px) scale(.985); filter:saturate(.9);
+  transition:opacity .8s cubic-bezier(.2,.6,.2,1), transform .8s cubic-bezier(.2,.6,.2,1), filter .8s}
+.reveal.in{opacity:1; transform:none; filter:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 
-    /* Theme chips */
-    .chips{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px}
-    .chip{
-      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px;
-      border:1px solid var(--line); background:rgba(255,255,255,.05); color:#dfe8ff; font-weight:700; font-size:14px;
-      cursor:pointer; user-select:none;
-    }
-    .dot{width:12px;height:12px;border-radius:50%;}
-  </style>
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1; transform:none}
+  .cta::before, .gloss::after{animation:none}
+}
+
+/* =========================
+   Footer
+========================= */
+footer{padding:40px 0; border-top:1px solid var(--line); color:var(--muted)}
+.footer-links{display:flex; gap:16px; justify-content:center; flex-wrap:wrap}
+</style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container nav center">
-      <div class="brand">Digital Brand Exposure</div>
-      <nav class="menu">
-        <a href="#services">Works We Do</a>
-        <a href="#projects">Past Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<div id="progress"></div>
+
+<header>
+  <div class="container nav">
+    <div class="brand">Digital Brand Exposure</div>
+    <nav>
+      <a href="#services">Works We Do</a>
+      <a href="#projects">Past Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="center" style="position:relative">
+    <div class="shapes" aria-hidden="true">
+      <span class="shape s1" data-parallax data-speed="0.1"></span>
+      <span class="shape s2" data-parallax data-speed="0.12"></span>
+      <span class="shape s3" data-parallax data-speed="0.08"></span>
     </div>
-  </header>
+    <div class="container">
+      <h1 class="gloss reveal">Make your brand unmissable.</h1>
+      <h2 class="reveal d1">Premium video and imagery that make you look established — and get noticed.</h2>
+      <div class="reveal d2"><a class="cta" href="#contact">Start your project</a></div>
+    </div>
+  </section>
 
-  <main>
-    <!-- HERO — one powerful button -->
-    <section class="center">
-      <div class="container">
-        <h1 class="reveal">Make your brand unmissable.</h1>
-        <h2 class="reveal d1">Premium video and imagery that make you look established—and get noticed.</h2>
+  <!-- WORKS WE DO -->
+  <section id="services" class="center">
+    <div class="container">
+      <h1 class="reveal">Works We Do</h1>
+      <h2 class="reveal d1">Three ways to look premium — everywhere you show up.</h2>
 
-        <!-- Single CTA (renamed) -->
-        <div class="reveal d2" style="margin-top:22px;">
-          <a class="cta" href="#contact">Start your project</a>
-        </div>
+      <div class="grid three" style="margin-top:22px">
+        <article class="card reveal" data-light>
+          <span class="badge"><span class="dot" style="background:var(--accent-2)"></span>Showcase</span>
+          <h3>Business Showcase Video</h3>
+          <p>Who you are in 60–90 seconds. Confident. Modern. Memorable.</p>
+        </article>
 
-        <!-- “Pick your vibe” theme switch -->
-        <div class="reveal d3 chips" aria-label="Pick your vibe">
-          <span class="chip" data-theme="neon"><span class="dot" style="background:#7c3aed"></span>Neon</span>
-          <span class="chip" data-theme="sunset"><span class="dot" style="background:#ff7a59"></span>Sunset</span>
-          <span class="chip" data-theme="royal"><span class="dot" style="background:#4f46e5"></span>Royal</span>
-        </div>
-      </div>
-    </section>
+        <article class="card reveal d1" data-light>
+          <span class="badge"><span class="dot" style="background:var(--accent-1)"></span>Spotlight</span>
+          <h3>Product Spotlight Video</h3>
+          <p>Make the product the obvious choice. Clean, desire-building cuts.</p>
+        </article>
 
-    <!-- WHAT WE DO — punchy -->
-    <section id="services" class="center">
-      <div class="container">
-        <h1 class="reveal">Works We Do</h1>
-        <h2 class="reveal d1">Three ways to look premium—everywhere you show up.</h2>
-        <div class="accent-line reveal d2"></div>
-
-        <div class="grid three" style="margin-top:20px">
-          <article class="card reveal">
-            <h3>Business Showcase Video</h3>
-            <p>Who you are in 60–90 seconds. Confident. Modern. Memorable.</p>
-          </article>
-
-          <article class="card reveal d1">
-            <h3>Product Spotlight Video</h3>
-            <p>Make the product the obvious choice. Clean, desire-building cuts.</p>
-          </article>
-
-          <article class="card reveal d2">
-            <h3>Brand Image Campaigns</h3>
-            <p>Consistent visuals for web & socials. Cohesive. On-brand. Premium.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAST PROJECTS — 3 tiles with palette-aware SVGs -->
-    <section id="projects" class="center">
-      <div class="container">
-        <h1 class="reveal">Past Projects</h1>
-        <h2 class="reveal d1">A few highlights. Ask for private links to full cuts.</h2>
-        <div class="accent-line reveal d2"></div>
-
-        <div class="grid three" style="margin-top:20px">
-          <!-- Project 1 -->
-          <article class="tile reveal">
-            <div class="tile-media" data-parallax data-speed="0.22" aria-label="Launch Film — D2C">
-              <svg viewBox="0 0 800 450" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%"  style="stop-color: var(--c1)"/>
-                    <stop offset="50%" style="stop-color: var(--c2)"/>
-                    <stop offset="100%" style="stop-color: var(--c3)"/>
-                  </linearGradient>
-                  <radialGradient id="rg1" cx="70%" cy="20%" r="60%">
-                    <stop offset="0%" stop-color="rgba(255,255,255,.5)"/>
-                    <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-                  </radialGradient>
-                </defs>
-                <rect width="800" height="450" fill="url(#g1)"/>
-                <circle cx="620" cy="90" r="160" fill="url(#rg1)"/>
-                <circle cx="400" cy="225" r="56" fill="rgba(0,0,0,.25)"/>
-                <polygon points="385,195 445,225 385,255" fill="#ffffff"/>
-              </svg>
-            </div>
-            <div class="tile-body">
-              <div style="color:var(--muted);font-size:14px">Case study</div>
-              <strong>Launch Film — D2C</strong>
-              <a class="btn-ghost" href="#contact">Request link</a>
-            </div>
-          </article>
-
-          <!-- Project 2 -->
-          <article class="tile reveal d1">
-            <div class="tile-media" data-parallax data-speed="0.2" aria-label="Service Promo — Local">
-              <svg viewBox="0 0 800 450" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
-                    <stop offset="0%"  style="stop-color: var(--c3)"/>
-                    <stop offset="50%" style="stop-color: var(--c2)"/>
-                    <stop offset="100%" style="stop-color: var(--c4)"/>
-                  </linearGradient>
-                  <radialGradient id="rg2" cx="35%" cy="15%" r="55%">
-                    <stop offset="0%" stop-color="rgba(255,255,255,.5)"/>
-                    <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-                  </radialGradient>
-                </defs>
-                <rect width="800" height="450" fill="url(#g2)"/>
-                <circle cx="280" cy="90" r="150" fill="url(#rg2)"/>
-                <circle cx="640" cy="380" r="120" fill="rgba(255,255,255,.18)"/>
-                <circle cx="400" cy="225" r="56" fill="rgba(0,0,0,.25)"/>
-                <polygon points="385,195 445,225 385,255" fill="#ffffff"/>
-              </svg>
-            </div>
-            <div class="tile-body">
-              <div style="color:var(--muted);font-size:14px">Case study</div>
-              <strong>Service Promo — Local</strong>
-              <a class="btn-ghost" href="#contact">Request link</a>
-            </div>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="tile reveal d2">
-            <div class="tile-media" data-parallax data-speed="0.18" aria-label="Performance Edits — YouTube">
-              <svg viewBox="0 0 800 450" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <linearGradient id="g3" x1="0" y1="1" x2="1" y2="0">
-                    <stop offset="0%"  style="stop-color: var(--c2)"/>
-                    <stop offset="50%" style="stop-color: var(--c1)"/>
-                    <stop offset="100%" style="stop-color: var(--c4)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="800" height="450" fill="url(#g3)"/>
-                <rect x="520" y="40" width="180" height="180" rx="16" fill="rgba(255,255,255,.12)"/>
-                <rect x="100" y="260" width="260" height="130" rx="16" fill="rgba(255,255,255,.18)"/>
-                <circle cx="400" cy="225" r="56" fill="rgba(0,0,0,.25)"/>
-                <polygon points="385,195 445,225 385,255" fill="#ffffff"/>
-              </svg>
-            </div>
-            <div class="tile-body">
-              <div style="color:var(--muted);font-size:14px">Case study</div>
-              <strong>Performance Edits — YouTube</strong>
-              <a class="btn-ghost" href="#contact">Request link</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="center">
-      <div class="container" style="max-width:820px">
-        <h1 class="reveal">Contact</h1>
-        <h2 class="reveal d1">Two minutes now → we’ll send a tailored plan.</h2>
-        <div class="accent-line reveal d2"></div>
-
-        <form class="card reveal" action="mailto:hello@dbestudio.co.uk" method="POST" enctype="text/plain">
-          <div class="grid two" style="gap:16px; margin-bottom:16px">
-            <input name="name" required placeholder="Name"
-                   style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.12); color:#fff">
-            <input name="email" type="email" required placeholder="Email"
-                   style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.12); color:#fff">
-          </div>
-            <input name="company" placeholder="Company / Brand"
-                   style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.12); color:#fff; width:100%; margin-bottom:16px">
-            <textarea name="brief" rows="6" placeholder="What outcome do you want? Any styles you like? Deadlines?"
-                      style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.12); color:#fff; width:100%;"></textarea>
-          <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:16px">
-            <button type="submit" class="cta">Start your project</button>
-            <a class="btn-ghost" href="mailto:hello@dbestudio.co.uk">Or email us directly</a>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="center">
-    <div class="container" style="display:grid; gap:8px; place-items:center">
-      <div>© <span id="year"></span> Digital Brand Exposure</div>
-      <div class="footer-links">
-        <a href="#services">Works We Do</a>
-        <a href="#projects">Past Projects</a>
-        <a href="#contact">Contact</a>
+        <article class="card reveal d2" data-light>
+          <span class="badge"><span class="dot" style="background:var(--accent-3)"></span>Campaign</span>
+          <h3>Brand Image Campaigns</h3>
+          <p>Consistent visuals for web & socials. Cohesive. Premium. On-brand.</p>
+        </article>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- PAST PROJECTS -->
+  <section id="projects" class="center">
+    <div class="container">
+      <h1 class="reveal">Past Projects</h1>
+      <h2 class="reveal d1">A few highlights. Ask for private links to full cuts.</h2>
 
-    // Reveal on scroll
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-    }, {threshold:.14});
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+      <div class="mosaic" style="margin-top:22px">
+        <!-- Big tile -->
+        <article class="tile big reveal">
+          <div class="thumb">
+            <div class="zoom" data-parallax data-speed="0.12">
+              <!-- Palette-aware SVG image -->
+              <svg viewBox="0 0 1200 675" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="var(--accent-1)"/>
+                    <stop offset="60%" stop-color="var(--accent-2)"/>
+                    <stop offset="100%" stop-color="var(--accent-3)"/>
+                  </linearGradient>
+                </defs>
+                <rect width="1200" height="675" fill="url(#gA)"/>
+                <circle cx="950" cy="120" r="160" fill="rgba(255,255,255,.18)"/>
+                <rect x="120" y="410" width="320" height="170" rx="20" fill="rgba(255,255,255,.15)"/>
+                <circle cx="600" cy="338" r="70" fill="rgba(0,0,0,.28)"/>
+                <polygon points="580,300 640,338 580,376" fill="#fff"/>
+              </svg>
+            </div>
+          </div>
+          <div class="label">
+            <strong>Launch Film — D2C</strong>
+            <a href="#contact" class="badge" style="border-color:rgba(255,255,255,.2)">Request link</a>
+          </div>
+        </article>
 
-    // Micro parallax for SVG thumbnails
-    const clamp = (n, min, max)=> Math.min(Math.max(n, min), max);
-    const media = Array.from(document.querySelectorAll('[data-parallax]'));
-    const onScroll = ()=>{
-      const vh = innerHeight;
-      media.forEach(m=>{
-        const r = m.getBoundingClientRect();
-        const progress = clamp((vh - r.top) / (vh + r.height), 0, 1);
-        const speed = parseFloat(m.dataset.speed || 0.22);
-        m.style.transform = `translateY(${(1-progress)*16*speed}px)`;
-      });
-    };
-    onScroll(); addEventListener('scroll', onScroll, {passive:true});
+        <!-- Small tile 1 -->
+        <article class="tile s1 reveal d1">
+          <div class="thumb">
+            <div class="zoom" data-parallax data-speed="0.14">
+              <svg viewBox="0 0 1200 675" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="gB" x1="1" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="var(--accent-3)"/>
+                    <stop offset="50%" stop-color="var(--accent-2)"/>
+                    <stop offset="100%" stop-color="var(--accent-1)"/>
+                  </linearGradient>
+                </defs>
+                <rect width="1200" height="675" fill="url(#gB)"/>
+                <rect x="840" y="80" width="250" height="200" rx="18" fill="rgba(255,255,255,.16)"/>
+                <circle cx="600" cy="338" r="70" fill="rgba(0,0,0,.28)"/>
+                <polygon points="580,300 640,338 580,376" fill="#fff"/>
+              </svg>
+            </div>
+          </div>
+          <div class="label">
+            <strong>Service Promo — Local</strong>
+            <a href="#contact" class="badge" style="border-color:rgba(255,255,255,.2)">Request link</a>
+          </div>
+        </article>
 
-    // Theme switcher (Neon / Sunset / Royal)
-    const sets = {
-      neon:   {c1:'#7c3aed', c2:'#2563eb', c3:'#06b6d4', c4:'#f43f5e', bg1:'rgba(124,58,237,.14)', bg2:'rgba(37,99,235,.12)', bg3:'rgba(6,182,212,.12)'},
-      sunset: {c1:'#ff7a59', c2:'#ff4d6d', c3:'#ff9f1c', c4:'#ff5964', bg1:'rgba(255,122,89,.16)', bg2:'rgba(255,77,109,.13)', bg3:'rgba(255,159,28,.12)'},
-      royal:  {c1:'#4f46e5', c2:'#0ea5e9', c3:'#22c55e', c4:'#a855f7', bg1:'rgba(79,70,229,.16)',  bg2:'rgba(14,165,233,.13)', bg3:'rgba(34,197,94,.12)'}
-    };
-    function setTheme(name){
-      const s = sets[name]; if(!s) return;
-      const r = document.documentElement.style;
-      r.setProperty('--c1', s.c1); r.setProperty('--c2', s.c2); r.setProperty('--c3', s.c3); r.setProperty('--c4', s.c4);
-      r.setProperty('--bgc1', s.bg1); r.setProperty('--bgc2', s.bg2); r.setProperty('--bgc3', s.bg3);
-    }
-    document.querySelectorAll('.chip').forEach(chip=>{
-      chip.addEventListener('click', ()=> setTheme(chip.dataset.theme));
-    });
-  </script>
+        <!-- Small tile 2 -->
+        <article class="tile s2 reveal d2">
+          <div class="thumb">
+            <div class="zoom" data-parallax data-speed="0.16">
+              <svg viewBox="0 0 1200 675" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="gC" x1="0" y1="1" x2="1" y2="0">
+                    <stop offset="0%" stop-color="var(--accent-2)"/>
+                    <stop offset="60%" stop-color="var(--accent-1)"/>
+                    <stop offset="100%" stop-color="var(--accent-3)"/>
+                  </linearGradient>
+                </defs>
+                <rect width="1200" height="675" fill="url(#gC)"/>
+                <circle cx="240" cy="150" r="120" fill="rgba(255,255,255,.15)"/>
+                <rect x="720" y="430" width="300" height="150" rx="18" fill="rgba(255,255,255,.16)"/>
+                <circle cx="600" cy="338" r="70" fill="rgba(0,0,0,.28)"/>
+                <polygon points="580,300 640,338 580,376" fill="#fff"/>
+              </svg>
+            </div>
+          </div>
+          <div class="label">
+            <strong>Performance Edits — YouTube</strong>
+            <a href="#contact" class="badge" style="border-color:rgba(255,255,255,.2)">Request link</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="center">
+    <div class="container">
+      <h1 class="reveal">Contact</h1>
+      <h2 class="reveal d1">Two minutes now → we’ll send a tailored plan.</h2>
+
+      <form class="form reveal d2" action="mailto:hello@dbestudio.co.uk" method="POST" enctype="text/plain">
+        <div class="controls">
+          <input name="name" placeholder="Name" required>
+          <input name="email" type="email" placeholder="Email" required>
+        </div>
+        <input name="company" placeholder="Company / Brand" style="margin-top:16px">
+        <textarea name="brief" rows="6" placeholder="What outcome do you want? Any styles you like? Deadlines?" style="margin-top:16px"></textarea>
+        <div class="actions" style="margin-top:16px">
+          <button type="submit" class="cta">Start your project</button>
+          <a class="badge" href="mailto:hello@dbestudio.co.uk" style="border-color:rgba(255,255,255,.2)">Email us directly</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="center">
+  <div class="container" style="display:grid; gap:10px; place-items:center">
+    <div>© <span id="year"></span> Digital Brand Exposure</div>
+    <div class="footer-links">
+      <a href="#services">Works We Do</a>
+      <a href="#projects">Past Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Year */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* Scroll progress */
+const progress = document.getElementById('progress');
+function setProgress(){ 
+  const h = document.documentElement, sc = h.scrollTop || document.body.scrollTop;
+  const max = h.scrollHeight - h.clientHeight; 
+  progress.style.width = (sc / max * 100) + '%';
+}
+addEventListener('scroll', setProgress, {passive:true}); setProgress();
+
+/* Reveal on scroll */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+}, {threshold:.14});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* Parallax for shapes & thumbnails */
+const clamp=(n,min,max)=>Math.min(Math.max(n,min),max);
+const pars=[...document.querySelectorAll('[data-parallax]')];
+function parallax(){
+  const vh=innerHeight;
+  pars.forEach(el=>{
+    const r=el.getBoundingClientRect();
+    const progress=clamp((vh-r.top)/(vh+r.height),0,1);
+    const s=parseFloat(el.dataset.speed||0.12);
+    el.style.transform=`translateY(${(1-progress)*24*s}px)`;
+  });
+}
+addEventListener('scroll', parallax, {passive:true}); parallax();
+
+/* Cursor-reactive light on cards */
+document.querySelectorAll('[data-light]').forEach(card=>{
+  card.addEventListener('pointermove', e=>{
+    const rect=card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((e.clientX-rect.left)/rect.width*100).toFixed(1)+'%');
+    card.style.setProperty('--my', ((e.clientY-rect.top)/rect.height*100).toFixed(1)+'%');
+  });
+});
+</script>
 </body>
 </html>
