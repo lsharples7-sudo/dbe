@@ -3,149 +3,160 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Digital Brand Exposure — Video that makes your business unmissable</title>
-  <meta name="description" content="Premium video that elevates how customers see you and moves them to act. Brand films, product spots, social reels, and performance edits." />
-  <meta name="theme-color" content="#f6f7fb" />
+  <title>Digital Brand Exposure — Make your brand unmissable</title>
+  <meta name="description" content="Premium video and imagery that elevate how customers see you — and drive action. Business showcase films, product spotlight videos, and brand image campaigns." />
+  <meta name="theme-color" content="#0b1020" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
   <style>
-    /* ========================
-       Design Tokens (light, vibrant)
-    ========================= */
+    /* ===============================
+       Design tokens (vibrant + clean)
+    ================================ */
     :root{
-      --bg:#f6f7fb;          /* soft light canvas */
-      --ink:#111217;         /* primary text */
-      --muted:#6b7280;       /* muted text */
-      --line:#e7e9ee;        /* hairline borders */
+      /* Canvas */
+      --bg:#0b1020;         /* deep night navy */
+      --ink:#f7f9fc;        /* near-white text */
+      --muted:#a9b1c7;      /* muted text */
+      --line:rgba(255,255,255,.12);
 
-      /* Pop palette (harmonic yet punchy) */
-      --c1:#7c3aed;          /* violet */
-      --c2:#2563eb;          /* blue */
-      --c3:#06b6d4;          /* cyan */
-      --c4:#f43f5e;          /* rose */
+      /* Pop palette */
+      --violet:#7c3aed;
+      --blue:#2563eb;
+      --cyan:#06b6d4;
+      --rose:#f43f5e;
 
-      --grad: linear-gradient(135deg, var(--c1), var(--c2), var(--c3), var(--c4));
+      --grad: linear-gradient(135deg, var(--violet), var(--blue), var(--cyan), var(--rose));
+      --surface: rgba(255,255,255,.06);
+      --surface-strong: rgba(255,255,255,.08);
+
       --radius:20px;
+      --shadow:0 14px 40px rgba(0,0,0,.28);
       --max:1180px;
-      --shadow:0 12px 36px rgba(16,24,40,.06);
     }
 
-    /* ========================
-       Base
-    ========================= */
+    /* Base */
     *{box-sizing:border-box}
     html,body{margin:0}
     body{
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      background:
-        radial-gradient(800px 400px at 20% -10%, rgba(124,58,237,.12), transparent 65%),
-        radial-gradient(900px 450px at 120% 0%, rgba(37,99,235,.10), transparent 60%),
-        radial-gradient(700px 400px at -10% 60%, rgba(6,182,212,.10), transparent 65%),
-        var(--bg);
       color:var(--ink);
+      background: var(--bg);
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-
     .container{max-width:var(--max);margin:0 auto;padding:0 24px}
-    .center{ text-align:center; }
+    .center{text-align:center}
 
-    /* ========================
-       Header (centred)
-    ========================= */
+    /* Animated background orbs (tasteful, lightweight) */
+    .bg-orbs{position:fixed; inset:-10% -10% -10% -10%; pointer-events:none; z-index:-1; overflow:hidden}
+    .orb{
+      position:absolute; width:60vmin; height:60vmin; border-radius:50%;
+      filter: blur(60px); opacity:.35; mix-blend:screen;
+      background: radial-gradient(closest-side, rgba(124,58,237,.9), transparent);
+      animation: float 18s ease-in-out infinite;
+    }
+    .o1{left:-8%; top:-6%; background:radial-gradient(closest-side, rgba(37,99,235,.9), transparent); animation-duration:22s;}
+    .o2{right:-10%; top:10%; background:radial-gradient(closest-side, rgba(6,182,212,.9), transparent); animation-duration:26s; animation-delay:-5s;}
+    .o3{left:20%; bottom:-12%; background:radial-gradient(closest-side, rgba(244,63,94,.85), transparent); animation-duration:24s; animation-delay:-9s;}
+    @keyframes float{
+      0%{ transform: translate3d(0,0,0) scale(1) rotate(0deg); }
+      50%{ transform: translate3d(0,-2%,0) scale(1.05) rotate(10deg); }
+      100%{ transform: translate3d(0,0,0) scale(1) rotate(0deg); }
+    }
+
+    /* Header */
     header{
       position:sticky; top:0; z-index:50;
-      background:rgba(246,247,251,.75);
-      backdrop-filter:saturate(180%) blur(12px);
+      background:rgba(11,16,32,.6); backdrop-filter:saturate(180%) blur(12px);
       border-bottom:1px solid var(--line);
     }
-    .nav{display:grid; place-items:center; gap:8px; padding:16px 0;}
-    .brand{font-weight:800; letter-spacing:-.2px;}
+    .nav{display:grid; place-items:center; gap:8px; padding:16px 0}
+    .brand{font-weight:800; letter-spacing:-.2px}
     .sub{color:var(--muted); font-size:14px}
-    .menu{display:flex; gap:22px; flex-wrap:wrap; justify-content:center; align-items:center}
+    .menu{display:flex; gap:22px; flex-wrap:wrap; justify-content:center}
     .menu a{color:var(--muted); font-weight:600}
-    .menu a:hover{color:var(--ink)}
+    .menu a:hover{color:#fff}
     .cta{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 16px; border-radius:12px; font-weight:700;
-      background:var(--ink); color:#fff;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 18px; border-radius:14px; font-weight:800;
+      color:#0b1020; background:var(--grad); border:1px solid rgba(255,255,255,.2);
+      box-shadow:0 8px 28px rgba(0,0,0,.3);
     }
-    .cta:hover{opacity:.9}
+    .cta:hover{filter:saturate(1.05); transform:translateY(-1px); transition:.2s}
 
-    /* ========================
-       Sections
-    ========================= */
-    section{padding:96px 0}
-    .section-head{margin-bottom:24px}
+    /* Sections */
+    section{padding:clamp(72px, 12vw, 112px) 0}
     h1,h2{margin:0}
-    h1{font-size: clamp(36px, 5vw, 56px); line-height:1.03; letter-spacing:-.02em}
-    h2{font-size: clamp(20px, 2.4vw, 24px); color:var(--muted); font-weight:600}
+    h1{font-size: clamp(34px, 5.2vw, 60px); line-height:1.04; letter-spacing:-.02em}
+    h2{font-size: clamp(18px, 2.4vw, 22px); color:var(--muted); font-weight:600}
+    p{margin:0}
     .accent-line{height:4px; width:120px; border-radius:999px; background:var(--grad); margin:16px auto 0}
 
-    /* ========================
-       Cards / Tiles (centred)
-    ========================= */
+    /* Cards/Tiles (centred) */
     .grid{display:grid; gap:24px}
     .two{grid-template-columns:1fr 1fr}
     .three{grid-template-columns:repeat(3,1fr)}
     @media (max-width:960px){ .two,.three{grid-template-columns:1fr} }
 
     .card{
-      background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
       padding:24px; box-shadow:var(--shadow); text-align:center;
     }
-    .chip{
-      display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      padding:6px 12px; border-radius:999px; background:#fff; border:1px solid var(--line);
-      box-shadow:0 8px 24px rgba(16,24,40,.04); color:var(--muted); font-weight:600; font-size:14px;
-    }
+    .card strong{font-size:20px}
+    .meta{color:var(--muted); font-size:14px; margin-top:8px}
 
     .tile{
-      background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); text-align:center;
+      background:var(--surface-strong); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); text-align:center;
     }
     .tile-media{
       aspect-ratio:16/9;
       background:
-        linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0)),
-        radial-gradient(600px 260px at 20% 0%, rgba(124,58,237,.20), transparent 55%),
-        radial-gradient(600px 260px at 80% 10%, rgba(37,99,235,.18), transparent 55%),
-        radial-gradient(700px 260px at 50% 100%, rgba(244,63,94,.16), transparent 55%),
-        #e7e9ee;
+        linear-gradient(180deg, rgba(255,255,255,.25), rgba(255,255,255,0)),
+        radial-gradient(600px 260px at 20% 0%, rgba(124,58,237,.28), transparent 55%),
+        radial-gradient(600px 260px at 80% 10%, rgba(37,99,235,.22), transparent 55%),
+        radial-gradient(700px 260px at 50% 100%, rgba(6,182,212,.22), transparent 55%),
+        rgba(255,255,255,.04);
+      border-bottom:1px solid var(--line);
     }
     .tile-body{display:grid; gap:8px; padding:16px 18px}
     .btn-link{font-weight:800; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
     .btn-link:hover{text-decoration:underline}
 
-    /* ========================
-       Motion (reveal + micro parallax)
-    ========================= */
-    .reveal{opacity:0; transform:translateY(24px) scale(.98); filter:saturate(.9);
+    /* Reveal motion */
+    .reveal{opacity:0; transform:translateY(26px) scale(.985); filter:saturate(.9);
             transition:opacity .9s cubic-bezier(.2,.6,.2,1), transform .9s cubic-bezier(.2,.6,.2,1), filter .9s}
     .reveal.in{opacity:1; transform:none; filter:none}
     .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
-    [data-parallax]{will-change:transform; transform:translateY(0)}
-    @media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none} [data-parallax]{transform:none} }
 
-    /* ========================
-       Footer
-    ========================= */
+    /* Micro parallax */
+    [data-parallax]{will-change:transform; transform:translateY(0)}
+    @media (prefers-reduced-motion:reduce){
+      .reveal{opacity:1; transform:none}
+      [data-parallax]{transform:none}
+      .orb{animation:none}
+    }
+
+    /* Footer */
     footer{padding:40px 0; border-top:1px solid var(--line); color:var(--muted)}
     .footer-links{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
-
-    /* Fun gradient stroke for headings on hover (subtle delight) */
-    .stroke:hover{
-      background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; cursor:default;
-    }
   </style>
 </head>
 <body>
-  <!-- Header (all centred) -->
+  <!-- Animated background -->
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb o1"></span>
+    <span class="orb o2"></span>
+    <span class="orb o3"></span>
+  </div>
+
+  <!-- Header (centred) -->
   <header>
     <div class="container nav center">
       <div>
         <div class="brand">Digital Brand Exposure</div>
-        <div class="sub">Video that makes your business look unmissable</div>
+        <div class="sub">Video and imagery that make your business look unmissable</div>
       </div>
       <nav class="menu">
         <a href="#services">Works We Do</a>
@@ -157,46 +168,52 @@
   </header>
 
   <main>
-    <!-- =======================
-         WORKS WE DO
-    ======================== -->
+    <!-- HERO (short + powerful) -->
+    <section class="center">
+      <div class="container">
+        <h1 class="reveal">Make your brand unmissable.</h1>
+        <h2 class="reveal d1">Premium video and imagery that elevate perception — and drive action.</h2>
+        <div class="accent-line reveal d2"></div>
+        <div class="reveal d3" style="margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap">
+          <a class="cta" href="#projects">See past projects</a>
+          <a class="btn-link" href="#contact">Talk to us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================
+         WORKS WE DO (three powerful offers)
+    ================================== -->
     <section id="services" class="center">
       <div class="container">
-        <div class="section-head">
-          <h1 class="reveal stroke">We create video that elevates perception — and moves customers to act.</h1>
-          <h2 class="reveal d1">Polished, scroll-stopping content that makes people think: “this brand is the real deal.”</h2>
-          <div class="accent-line reveal d2"></div>
-        </div>
+        <h1 class="reveal">Works We Do</h1>
+        <h2 class="reveal d1">Clear, premium outputs that make you look established on day one.</h2>
+        <div class="accent-line reveal d2"></div>
 
-        <div class="grid two">
-          <div class="card reveal">
-            <div class="chip" style="margin-bottom:10px">
-              <span style="width:10px;height:10px;border-radius:50%;background:var(--c1)"></span> Brand Films
-            </div>
-            <p style="margin-bottom:10px">Signature pieces that define how you’re seen — modern, confident, unmistakably premium.</p>
-            <p style="color:var(--muted)">Typical deliverables: 45–90s hero + cutdowns, captions, web-optimised export.</p>
-          </div>
-          <div class="card reveal d1">
-            <div class="chip" style="margin-bottom:10px">
-              <span style="width:10px;height:10px;border-radius:50%;background:var(--c2)"></span> Product Spots
-            </div>
-            <p style="margin-bottom:10px">Crisp, desire-building visuals that make what you sell feel like the obvious choice.</p>
-            <p style="color:var(--muted)">Deliverables: 15–30s variants for web, social, and ad placements.</p>
-          </div>
-          <div class="card reveal d2">
-            <div class="chip" style="margin-bottom:10px">
-              <span style="width:10px;height:10px;border-radius:50%;background:var(--c3)"></span> Social Reels
-            </div>
-            <p style="margin-bottom:10px">Short, punchy edits that win attention in seconds and carry your look everywhere.</p>
-            <p style="color:var(--muted)">Deliverables: 3–6 cuts per concept, platform-specific ratios, subtitles.</p>
-          </div>
-          <div class="card reveal d3">
-            <div class="chip" style="margin-bottom:10px">
-              <span style="width:10px;height:10px;border-radius:50%;background:var(--c4)"></span> Performance Edits
-            </div>
-            <p style="margin-bottom:10px">Direct-response creative that looks premium and plugs into measurable growth.</p>
-            <p style="color:var(--muted)">Deliverables: Ad-ready variations, hooks testing pack, end-card options.</p>
-          </div>
+        <div class="grid three" style="margin-top:24px">
+          <!-- 1. Business Showcase Video -->
+          <article class="card reveal">
+            <strong>Business Showcase Video</strong>
+            <p class="meta">Your flagship film. Captures who you are, why you matter, and the feeling customers should leave with.</p>
+            <p style="margin-top:10px">Perfect for homepages, profiles and presentations — the piece that makes people say “this business is the real deal.”</p>
+            <p class="meta" style="margin-top:10px">Deliverables: 60–90s hero + cutdowns, captions, web & social formats.</p>
+          </article>
+
+          <!-- 2. Product Spotlight Video -->
+          <article class="card reveal d1">
+            <strong>Product Spotlight Video</strong>
+            <p class="meta">Precision-cut stories that show how your product solves, delights, or outperforms — without fluff.</p>
+            <p style="margin-top:10px">Designed for product pages, landing pages and ads; built to spark desire and move people forward.</p>
+            <p class="meta" style="margin-top:10px">Deliverables: 15–45s variants, platform-specific ratios, hooks and end-cards.</p>
+          </article>
+
+          <!-- 3. Brand Image Campaigns -->
+          <article class="card reveal d2">
+            <strong>Brand Image Campaigns</strong>
+            <p class="meta">Cohesive image sets that refresh your website, socials and listings with consistent, on-brand visuals.</p>
+            <p style="margin-top:10px">Crisp lighting, colour discipline and compositions that stop the scroll and lift perceived quality.</p>
+            <p class="meta" style="margin-top:10px">Deliverables: Web & social bundles, crops & colour grades, usage-ready files.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -206,13 +223,11 @@
     ======================== -->
     <section id="projects" class="center">
       <div class="container">
-        <div class="section-head">
-          <h1 class="reveal stroke">Past Projects</h1>
-          <h2 class="reveal d1">A few highlights. Ask for private links to full cuts.</h2>
-          <div class="accent-line reveal d2"></div>
-        </div>
+        <h1 class="reveal">Past Projects</h1>
+        <h2 class="reveal d1">A few highlights. Ask for private links to full cuts.</h2>
+        <div class="accent-line reveal d2"></div>
 
-        <div class="grid three">
+        <div class="grid three" style="margin-top:24px">
           <!-- Project 1 -->
           <article class="tile reveal">
             <div class="tile-media" data-parallax data-speed="0.24" aria-label="Project placeholder"></div>
@@ -275,21 +290,23 @@
          CONTACT
     ======================== -->
     <section id="contact" class="center">
-      <div class="container">
-        <div class="section-head">
-          <h1 class="reveal stroke">Contact</h1>
-          <h2 class="reveal d1">Two minutes now → a concepts deck in your inbox.</h2>
-          <div class="accent-line reveal d2"></div>
-        </div>
+      <div class="container" style="max-width:820px">
+        <h1 class="reveal">Contact</h1>
+        <h2 class="reveal d1">Two minutes now → a concepts deck in your inbox.</h2>
+        <div class="accent-line reveal d2"></div>
 
         <!-- Mailto keeps it backend-free on GitHub Pages. Swap to Formspree anytime. -->
         <form class="card reveal" action="mailto:hello@dbestudio.co.uk" method="POST" enctype="text/plain">
           <div class="grid two" style="gap:16px; margin-bottom:16px">
-            <input name="name" required placeholder="Name" style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:#fff">
-            <input name="email" type="email" required placeholder="Email" style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:#fff">
+            <input name="name" required placeholder="Name"
+                   style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.12); color:#fff">
+            <input name="email" type="email" required placeholder="Email"
+                   style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.12); color:#fff">
           </div>
-          <input name="company" placeholder="Company / Brand" style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:#fff; width:100%; margin-bottom:16px">
-          <textarea name="brief" rows="6" placeholder="What outcome do you want? Any styles you like? Deadlines?" style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:#fff; width:100%;"></textarea>
+          <input name="company" placeholder="Company / Brand"
+                 style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.12); color:#fff; width:100%; margin-bottom:16px">
+          <textarea name="brief" rows="6" placeholder="What outcome do you want? Any styles you like? Deadlines?"
+                    style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.12); color:#fff; width:100%;"></textarea>
           <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:16px">
             <button type="submit" class="cta">Send enquiry</button>
             <a class="btn-link" href="mailto:hello@dbestudio.co.uk">Or email us directly</a>
