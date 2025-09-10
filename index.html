@@ -3,110 +3,165 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Digital Brand Exposure</title>
-  <meta name="description" content="Clean, high-converting websites and AI-powered video ads." />
+  <title>Digital Brand Exposure — Video that makes your business look unmissable</title>
+  <meta name="description" content="Digital Brand Exposure creates scroll-stopping videos that make businesses look unmissable and drive real growth." />
+  <meta name="theme-color" content="#111827" />
+  <meta property="og:title" content="Digital Brand Exposure — Video that makes your business look unmissable" />
+  <meta property="og:description" content="Scroll-stopping, premium video that elevates how customers see you — and moves them to act." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.dbestudio.co.uk/og-cover.jpg" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#000;
-      --panel: rgba(255,255,255,0.05);
-      --border: rgba(255,255,255,0.10);
-      --text:#fff;
-      --muted: rgba(255,255,255,0.7);
-      --muted2: rgba(255,255,255,0.6);
-      --accent:#00E5FF;
+      --bg:#0b1020;               /* deep navy background */
+      --surface:#0f172a;          /* panels */
+      --text:#f8fafc;             /* near-white text */
+      --muted:#cbd5e1;            /* muted text */
+      --border:rgba(248,250,252,.12);
+
+      /* Accent pair for contrast (teal + electric coral) */
+      --accent: #00f5d4;
+      --accent-2: #ff4d6d;
+
+      /* Radiant gradient used for buttons, lines, and highlights */
+      --grad: linear-gradient(135deg, var(--accent), var(--accent-2));
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 20% -10%, rgba(0,245,212,.10), transparent 60%),
+                                      radial-gradient(1000px 500px at 100% 0%, rgba(255,77,109,.12), transparent 60%),
+                                      var(--bg);
+              color:var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif}
     a{color:inherit;text-decoration:none}
-    .container{max-width:1200px;margin:0 auto;padding:0 16px}
-    header{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.5);backdrop-filter: blur(8px);border-bottom:1px solid var(--border)}
-    header .row{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    nav{display:none;gap:24px;font-size:14px;color:var(--muted)}
-    nav a:hover{color:#fff}
-    .btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);background:rgba(255,255,255,.06);padding:10px 16px;border-radius:12px;font-weight:600}
-    .btn:hover{background:rgba(255,255,255,.10)}
-    .grid{display:grid;gap:24px}
-    .two{grid-template-columns:1fr 1fr}
-    .four{grid-template-columns:repeat(4,1fr)}
-    @media (min-width:768px){ nav{display:flex} }
-    @media (max-width:900px){ .two{grid-template-columns:1fr} .four{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:560px){ .four{grid-template-columns:1fr} }
-    section{padding:64px 0;border-top:1px solid var(--border)}
-    .muted{color:var(--muted)}
-    .muted2{color:var(--muted2)}
-    h1{font-size:42px;line-height:1.1;margin:0 0 12px}
-    h2{font-size:28px;margin:0 0 8px}
-    .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid var(--border);padding:6px 12px;border-radius:999px;color:rgba(255,255,255,.8);font-size:14px}
-    .card{border:1px solid var(--border);background:var(--panel);padding:24px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    .small{font-size:14px}
-    .check{width:18px;height:18px;border-radius:999px;display:inline-block;margin-right:8px;border:2px solid var(--accent);position:relative;top:3px}
-    .check::after{content:"";position:absolute;inset:3px;background:var(--accent);border-radius:999px}
-    .list{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;color:var(--muted2);font-size:14px}
-    .price{font-size:36px;font-weight:800}
-    .glows{position:fixed;inset:0;pointer-events:none;z-index:0;background:
-      radial-gradient(600px 300px at 20% 10%, rgba(0,229,255,0.18), transparent 60%),
-      radial-gradient(600px 400px at 80% 0%, rgba(0,229,255,0.12), transparent 60%);
-    }
-    .reveal{opacity:0;transform:translateY(12px);animation:reveal .7s ease forwards}
-    .reveal.delay1{animation-delay:.05s}
-    .reveal.delay2{animation-delay:.1s}
-    .reveal.delay3{animation-delay:.15s}
-    @keyframes reveal{to{opacity:1;transform:none}}
-    .brand{font-weight:800;font-size:20px;letter-spacing:-0.3px}
-    .preview{aspect-ratio:16/9;border:1px solid var(--border);border-radius:18px;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--muted)}
-    input, textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--border);background:rgba(0,0,0,.6);color:#fff;outline:none}
-    textarea{resize:vertical}
-    .row{display:grid;gap:16px}
-    @media (min-width:768px){ .row.two{grid-template-columns:1fr 1fr} }
-    footer{padding:40px 0;border-top:1px solid var(--border);color:var(--muted2)}
-    .footer-links{display:flex;gap:24px;flex-wrap:wrap}
+    img{max-width:100%;display:block}
+
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:20;background:rgba(11,16,32,.55);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    header .row{padding:14px 0}
+    .brand{font-weight:800;letter-spacing:-.2px}
+    .brand .emph{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    nav{display:none;gap:24px}
+    .link{color:var(--muted)}
     .link:hover{color:#fff}
-    html{scroll-behavior:smooth}
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;justify-content:center;
+         padding:12px 18px;border-radius:12px;font-weight:600;position:relative;isolation:isolate}
+    .btn-primary{background:var(--surface);border:1px solid var(--border)}
+    .btn-primary:before{content:"";position:absolute;inset:-1px;border-radius:12px;background:var(--grad);z-index:-1;opacity:.9;filter:blur(12px)}
+    .btn-primary:hover{box-shadow:0 8px 28px rgba(0,0,0,.35)}
+    .btn-ghost{border:1px solid var(--border);background:transparent}
+    .btn-ghost:hover{background:rgba(255,255,255,.05)}
+
+    /* Sections & layout */
+    section{padding:72px 0;border-top:1px solid var(--border)}
+    .grid{display:grid;gap:24px}
+    .two{grid-template-columns:1.1fr .9fr}
+    .three{grid-template-columns:repeat(3,1fr)}
+    .four{grid-template-columns:repeat(4,1fr)}
+    @media (max-width:960px){ .two,.three,.four{grid-template-columns:1fr} nav{display:none} }
+    @media (min-width:960px){ nav{display:flex} }
+
+    /* Typography */
+    h1{font-family: "Playfair Display", serif; font-weight:700; font-size:52px; line-height:1.05; margin:0 0 14px}
+    h2{font-size:32px;margin:0 0 10px}
+    p{margin:0}
+    .muted{color:var(--muted)}
+
+    /* Hero */
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:6px 12px;border-radius:999px;
+                  background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);font-size:14px}
+    .accent-underline{background:var(--grad);height:3px;border-radius:999px;width:96px;margin-top:10px}
+
+    .hero-card{border:1px solid var(--border);background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+               border-radius:18px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .frame{aspect-ratio:16/9;border-radius:14px;display:grid;place-items:center;color:var(--muted);
+           background:
+           radial-gradient(600px 200px at 20% 20%, rgba(0,245,212,.20), transparent 60%),
+           radial-gradient(500px 300px at 80% 0%, rgba(255,77,109,.18), transparent 60%),
+           linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02))}
+
+    /* Feature cards */
+    .card{border:1px solid var(--border);background:var(--surface);border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid var(--border);
+          padding:6px 12px;border-radius:999px;color:rgba(255,255,255,.85);font-size:14px}
+
+    /* Step list */
+    .steps{display:grid;gap:14px;grid-template-columns:repeat(5,1fr)}
+    .step{border:1px dashed var(--border);border-radius:14px;padding:16px;background:rgba(255,255,255,.03)}
+    @media (max-width:960px){ .steps{grid-template-columns:1fr 1fr} }
+    @media (max-width:560px){ .steps{grid-template-columns:1fr} }
+
+    /* Reel wall */
+    .thumb{aspect-ratio:16/10;border-radius:12px;background:
+           linear-gradient(135deg, rgba(255,255,255,.08), transparent),
+           linear-gradient(135deg, rgba(0,245,212,.12), rgba(255,77,109,.10));
+           border:1px solid var(--border)}
+    .thumb:hover{box-shadow:0 12px 30px rgba(0,0,0,.35)}
+
+    /* Testimonials */
+    .quote{font-size:18px}
+    .quote em{color:#fff}
+
+    /* Footer */
+    footer{padding:40px 0;border-top:1px solid var(--border);color:var(--muted)}
+
+    /* Tiny animation */
+    .reveal{opacity:0;transform:translateY(10px);animation:reveal .7s ease forwards}
+    .delay1{animation-delay:.1s}.delay2{animation-delay:.2s}.delay3{animation-delay:.3s}.delay4{animation-delay:.4s}
+    @keyframes reveal{to{opacity:1;transform:none}}
   </style>
 </head>
 <body>
-  <div class="glows" aria-hidden="true"></div>
-
+  <!-- Header -->
   <header>
     <div class="container row">
-      <div class="brand">Digital Brand Exposure</div>
+      <div class="brand">Digital Brand <span class="emph">Exposure</span></div>
       <nav>
-        <a href="#services" class="link">Services</a>
-        <a href="#work" class="link">Work</a>
-        <a href="#pricing" class="link">Pricing</a>
-        <a href="#contact" class="link">Contact</a>
+        <a class="link" href="#work">Work</a>
+        <a class="link" href="#services">Services</a>
+        <a class="link" href="#process">Process</a>
+        <a class="link" href="#testimonials">Results</a>
+        <a class="link" href="#contact">Contact</a>
       </nav>
-      <a class="btn" href="#contact">Start a project</a>
+      <a class="btn btn-primary" href="#contact">Start a project</a>
     </div>
   </header>
 
   <main>
+    <!-- HERO -->
     <section>
       <div class="container grid two">
         <div>
-          <div class="pill reveal">🚀 AI + Web that gets you seen</div>
-          <h1 class="reveal delay1">Build your brand’s <span class="muted">presence</span> & turn views into revenue</h1>
-          <p class="muted reveal delay2">We craft conversion-focused websites and AI-powered video ads. Clean design, fierce speed, and a single striking accent colour so your brand cuts through the noise.</p>
-          <div class="reveal delay3" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
-            <a href="#contact" class="btn">Get a free concept</a>
-            <a href="#work" class="btn" style="background:transparent">See recent work</a>
+          <div class="hero-eyebrow reveal">🎥 Premium video that changes how people see you</div>
+          <h1 class="reveal delay1">
+            Video that makes your business look <span class="emph">unmissable</span>
+          </h1>
+          <p class="muted reveal delay2">
+            We craft scroll-stopping, premium visuals that make audiences think
+            <em>“this brand is the real deal.”</em> Less noise, more presence — and a clear path from attention to action.
+          </p>
+          <div class="accent-underline reveal delay3"></div>
+          <div class="reveal delay4" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="#contact">Get a concepts deck</a>
+            <a class="btn btn-ghost" href="#work">See recent work</a>
           </div>
-          <div class="list reveal" style="margin-top:24px">
-            <span><span class="check"></span>Fast, mobile-first</span>
-            <span><span class="check"></span>SEO ready</span>
-            <span><span class="check"></span>Scales with you</span>
-          </div>
+          <p class="muted" style="margin-top:14px;font-size:14px">Brand films • Product spotlights • Social reels • Performance ads</p>
         </div>
-        <div class="reveal">
-          <div class="card">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-              <div class="brand">Digital Brand Exposure</div>
+        <div class="reveal delay2">
+          <div class="hero-card">
+            <div class="row" style="margin-bottom:12px">
               <div class="pill">Live preview</div>
+              <div class="pill">4K ready</div>
             </div>
-            <div class="preview">
-              <div>
-                <div style="margin-bottom:8px">🎬 <strong>AI Ad Concept</strong></div>
-                <div class="card small" style="border-style:dashed">Drop your script or brief — we’ll generate a storyboard & voiceover-ready cut.</div>
+            <div class="frame">
+              <div style="text-align:center">
+                <div style="font-weight:800;font-size:18px;margin-bottom:6px">Concept Teaser</div>
+                <div class="muted" style="font-size:14px">Your logo, your look, your pace — cut to convert.</div>
               </div>
             </div>
           </div>
@@ -114,166 +169,181 @@
       </div>
     </section>
 
-    <!-- services -->
+    <!-- WHAT WE DO -->
     <section id="services">
       <div class="container">
-        <h2 class="reveal">What we do</h2>
-        <p class="muted reveal">End-to-end creative and performance: from brand identity to high-velocity landing pages and thumb-stopping ad videos.</p>
+        <h2 class="reveal">What we create</h2>
+        <p class="muted reveal delay1">Work that lifts perception and moves customers forward.</p>
         <div class="grid four" style="margin-top:16px">
           <div class="card reveal">
-            <h3>Websites that convert</h3>
-            <p class="small muted">Lightning-fast, SEO-friendly sites in clean black/white with a single accent. Built to drive enquiries and sales.</p>
+            <div class="pill" style="margin-bottom:10px">Brand Story</div>
+            <p>Signature films that show substance and style — the piece that makes people say “wow”.</p>
           </div>
           <div class="card reveal delay1">
-            <h3>AI video production</h3>
-            <p class="small muted">Script to screen with AI voiceover, stock, and motion. Multiple cuts for feed, Shorts/Reels & ads.</p>
+            <div class="pill" style="margin-bottom:10px">Product Spotlight</div>
+            <p>Clean, desire-building visuals that make what you sell feel like the only choice.</p>
           </div>
           <div class="card reveal delay2">
-            <h3>YouTube & paid ads</h3>
-            <p class="small muted">Media-ready creatives and tracking foundations to scale from £/day to £££/day without guesswork.</p>
+            <div class="pill" style="margin-bottom:10px">Social Reels</div>
+            <p>Short, punchy edits for feeds and stories — built to earn attention in seconds.</p>
           </div>
           <div class="card reveal delay3">
-            <h3>Branding & logo</h3>
-            <p class="small muted">Refined marks plus type, colour, and usage rules that stay consistent everywhere.</p>
+            <div class="pill" style="margin-bottom:10px">Performance Ads</div>
+            <p>Direct-response creative that looks premium and clicks into measurable growth.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- process -->
-    <section>
-      <div class="container">
-        <h2 class="reveal">A crisp, 5-step build</h2>
-        <div class="grid" style="grid-template-columns: repeat(5, 1fr);gap:12px;margin-top:12px">
-          <div class="card small reveal"> <strong>1. Discovery</strong><br><span class="muted">Clear goals, audiences, and style.</span></div>
-          <div class="card small reveal delay1"> <strong>2. Concept</strong><br><span class="muted">Moodboards + hero copy.</span></div>
-          <div class="card small reveal delay2"> <strong>3. Design</strong><br><span class="muted">Mobile-first screens.</span></div>
-          <div class="card small reveal delay3"> <strong>4. Build</strong><br><span class="muted">Clean code & SEO.</span></div>
-          <div class="card small reveal delay3"> <strong>5. Launch + Optimise</strong><br><span class="muted">Analytics & A/B testing.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- work -->
+    <!-- REEL WALL -->
     <section id="work">
       <div class="container">
-        <div style="display:flex;align-items:end;justify-content:space-between;margin-bottom:12px">
+        <div class="row" style="margin-bottom:14px">
           <h2 class="reveal">Recent work</h2>
-          <a href="#contact" class="muted link reveal">Need a specific style? Ask for a tailored demo →</a>
+          <a class="link reveal delay1" href="#contact">Want something specific? Ask for a tailored sample →</a>
         </div>
-        <div class="grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="grid three">
           <div class="card reveal">
-            <div style="aspect-ratio:16/10;background:linear-gradient(135deg, rgba(255,255,255,.08), transparent);border-radius:12px"></div>
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+            <div class="thumb"></div>
+            <div class="row" style="margin-top:12px">
               <div>
-                <div class="small muted">Case Study</div>
-                <div>Ecommerce Launch</div>
+                <div class="muted" style="font-size:13px">Case study</div>
+                <strong>Launch film — D2C</strong>
               </div>
-              <div class="btn small">View</div>
+              <a class="btn btn-ghost" href="#contact">Request link</a>
             </div>
           </div>
           <div class="card reveal delay1">
-            <div style="aspect-ratio:16/10;background:linear-gradient(135deg, rgba(255,255,255,.08), transparent);border-radius:12px"></div>
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+            <div class="thumb"></div>
+            <div class="row" style="margin-top:12px">
               <div>
-                <div class="small muted">Case Study</div>
-                <div>Local Service</div>
+                <div class="muted" style="font-size:13px">Case study</div>
+                <strong>Service promo — Local</strong>
               </div>
-              <div class="btn small">View</div>
+              <a class="btn btn-ghost" href="#contact">Request link</a>
             </div>
           </div>
           <div class="card reveal delay2">
-            <div style="aspect-ratio:16/10;background:linear-gradient(135deg, rgba(255,255,255,.08), transparent);border-radius:12px"></div>
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+            <div class="thumb"></div>
+            <div class="row" style="margin-top:12px">
               <div>
-                <div class="small muted">Case Study</div>
-                <div>YouTube Funnel</div>
+                <div class="muted" style="font-size:13px">Case study</div>
+                <strong>Performance edits — YouTube</strong>
               </div>
-              <div class="btn small">View</div>
+              <a class="btn btn-ghost" href="#contact">Request link</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- pricing -->
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="container">
+        <h2 class="reveal">A fast, confident process</h2>
+        <p class="muted reveal delay1">Clear steps. Tight feedback. Delivery that feels effortless.</p>
+        <div class="steps" style="margin-top:16px">
+          <div class="step reveal"><strong>1. Discovery</strong><br><span class="muted">Goals, audience, tone, and outcomes.</span></div>
+          <div class="step reveal delay1"><strong>2. Creative</strong><br><span class="muted">Concepts, look & feel, storyboard.</span></div>
+          <div class="step reveal delay2"><strong>3. Shoot</strong><br><span class="muted">On-site or asset-led capture.</span></div>
+          <div class="step reveal delay3"><strong>4. Edit</strong><br><span class="muted">Cut, sound, grade, captions.</span></div>
+          <div class="step reveal delay4"><strong>5. Deliver</strong><br><span class="muted">Formats for web, socials & ads.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="container">
+        <h2 class="reveal">Results people notice</h2>
+        <div class="grid three" style="margin-top:14px">
+          <div class="card reveal">
+            <p class="quote"><em>“The video made us look premium overnight.”</em></p>
+            <p class="muted" style="margin-top:8px">— Retail brand</p>
+          </div>
+          <div class="card reveal delay1">
+            <p class="quote"><em>“Our enquiries doubled within two weeks.”</em></p>
+            <p class="muted" style="margin-top:8px">— Local service</p>
+          </div>
+          <div class="card reveal delay2">
+            <p class="quote"><em>“It finally looks like the business we know we are.”</em></p>
+            <p class="muted" style="margin-top:8px">— B2B SaaS</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING (optional; keeps clarity) -->
     <section id="pricing">
       <div class="container">
-        <h2 class="reveal">Simple packages</h2>
-        <p class="muted reveal">Transparent pricing to get moving now. Custom builds available on request.</p>
-        <div class="grid three" style="grid-template-columns:repeat(3,1fr);margin-top:12px;gap:18px">
+        <h2 class="reveal">Clear starting points</h2>
+        <p class="muted reveal delay1">Every project is scoped to goals and channels. These packages make it easy to begin.</p>
+        <div class="grid three" style="margin-top:16px">
           <div class="card reveal">
-            <div class="small muted2" style="text-transform:uppercase;letter-spacing:.1em">Starter</div>
-            <div class="price">£995</div>
-            <ul class="small muted">
-              <li>1-page site or landing page</li>
-              <li>Brand accent & type system</li>
-              <li>Basic SEO + analytics</li>
-              <li>AI ad concept (15–30s)</li>
-            </ul>
-            <a class="btn" href="#contact">Start Starter</a>
+            <div class="pill" style="margin-bottom:8px">Starter Reel</div>
+            <p><strong>£995</strong></p>
+            <p class="muted">One signature 30–45s piece + cutdowns for social.</p>
           </div>
-          <div class="card reveal delay1">
-            <div class="small muted2" style="text-transform:uppercase;letter-spacing:.1em">Growth</div>
-            <div class="price">£2,450</div>
-            <ul class="small muted">
-              <li>Up to 5 pages</li>
-              <li>2x AI video ads (15–30s)</li>
-              <li>Conversion tracking</li>
-              <li>Performance optimisations</li>
-            </ul>
-            <a class="btn" href="#contact">Start Growth</a>
+          <div class="card reveal delay1" style="border-image: var(--grad) 1; border: 1px solid transparent">
+            <div class="pill" style="margin-bottom:8px">Launch Kit</div>
+            <p><strong>£2,450</strong></p>
+            <p class="muted">Brand film + 3 reels + channel formatting & captions.</p>
           </div>
           <div class="card reveal delay2">
-            <div class="small muted2" style="text-transform:uppercase;letter-spacing:.1em">Scale</div>
-            <div class="price">£4,900</div>
-            <ul class="small muted">
-              <li>Custom design system</li>
-              <li>CMS + blog</li>
-              <li>YouTube/Ads creative kit</li>
-              <li>A/B testing setup</li>
-            </ul>
-            <a class="btn" href="#contact">Start Scale</a>
+            <div class="pill" style="margin-bottom:8px">Campaign</div>
+            <p><strong>£4,900</strong></p>
+            <p class="muted">Creative system + variations for paid and organic.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- contact -->
+    <!-- CONTACT -->
     <section id="contact">
-      <div class="container" style="max-width:800px">
-        <h2 class="reveal">Tell us about your project</h2>
-        <p class="muted reveal">Two minutes now → a polished concept in your inbox.</p>
-        <form name="contact" method="POST" data-netlify="true" class="row">
-          <input type="hidden" name="form-name" value="contact">
-          <div class="row two">
-            <div><input name="name" placeholder="Name" required></div>
-            <div><input type="email" name="email" placeholder="Email" required></div>
+      <div class="container" style="max-width:820px">
+        <h2 class="reveal">Tell us what you need</h2>
+        <p class="muted reveal delay1">Two minutes now → a concepts deck in your inbox.</p>
+        <!-- Simple mailto form (works on GitHub Pages without a backend).
+             If you prefer a hosted form, swap the <form> action to Formspree later. -->
+        <form class="grid" style="margin-top:16px" action="mailto:hello@dbestudio.co.uk" method="POST" enctype="text/plain">
+          <div class="grid two">
+            <input required name="name" placeholder="Name" style="padding:14px 16px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:#fff">
+            <input required type="email" name="email" placeholder="Email" style="padding:14px 16px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:#fff">
           </div>
-          <div><input name="company" placeholder="Company / Brand"></div>
-          <div><textarea name="brief" rows="6" placeholder="What do you need? (site pages, styles you like, any deadlines)"></textarea></div>
-          <div><button class="btn" type="submit">✉️ Send brief</button></div>
+          <input name="company" placeholder="Company / Brand" style="padding:14px 16px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:#fff">
+          <textarea name="brief" rows="6" placeholder="What outcome do you want? Any styles you like? Deadlines?" style="padding:14px 16px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:#fff"></textarea>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn btn-primary" type="submit">Send enquiry</button>
+            <a class="btn btn-ghost" href="mailto:hello@dbestudio.co.uk">Or email us directly</a>
+          </div>
         </form>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
-      <div>
-        <span class="small">© <span id="year"></span> Digital Brand Exposure</span>
-      </div>
-      <div class="footer-links small">
+    <div class="container row" style="flex-wrap:wrap;gap:12px">
+      <div>© <span id="year"></span> Digital Brand Exposure</div>
+      <div class="row" style="gap:16px">
         <a class="link" href="#services">Services</a>
         <a class="link" href="#work">Work</a>
-        <a class="link" href="#pricing">Pricing</a>
+        <a class="link" href="#process">Process</a>
         <a class="link" href="#contact">Contact</a>
       </div>
     </div>
   </footer>
 
   <script>
+    // year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // simple reveal on scroll
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); } });
+    },{threshold:.12});
+    els.forEach(el => io.observe(el));
   </script>
 </body>
 </html>
