@@ -4,123 +4,150 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Digital Brand Exposure — Video that makes your business unmissable</title>
-  <meta name="description" content="We craft premium video that elevates perception and moves customers to act. Brand films, product spots, social reels, and performance edits." />
-  <meta name="theme-color" content="#f5f5f7" />
-  <meta property="og:title" content="Digital Brand Exposure — Video that makes your business unmissable" />
-  <meta property="og:description" content="Premium video that elevates how customers see you — and moves them to act." />
+  <meta name="description" content="Premium video that elevates how customers see you and moves them to act. Brand films, product spots, social reels, and performance edits." />
+  <meta name="theme-color" content="#f6f7fb" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* ===== Design tokens (Apple-like light UI) ===== */
+    /* ========================
+       Design Tokens (light, vibrant)
+    ========================= */
     :root{
-      --bg:#f5f5f7;
-      --surface:#ffffff;
-      --text:#1d1d1f;
-      --muted:#6e6e73;
-      --line:#d2d2d7;
-      --accent:#0071e3;          /* Apple blue */
+      --bg:#f6f7fb;          /* soft light canvas */
+      --ink:#111217;         /* primary text */
+      --muted:#6b7280;       /* muted text */
+      --line:#e7e9ee;        /* hairline borders */
+
+      /* Pop palette (harmonic yet punchy) */
+      --c1:#7c3aed;          /* violet */
+      --c2:#2563eb;          /* blue */
+      --c3:#06b6d4;          /* cyan */
+      --c4:#f43f5e;          /* rose */
+
+      --grad: linear-gradient(135deg, var(--c1), var(--c2), var(--c3), var(--c4));
       --radius:20px;
-      --shadow:0 8px 24px rgba(0,0,0,.06);
       --max:1180px;
+      --shadow:0 12px 36px rgba(16,24,40,.06);
     }
 
-    /* ===== Base ===== */
+    /* ========================
+       Base
+    ========================= */
     *{box-sizing:border-box}
     html,body{margin:0}
     body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,system-ui,sans-serif;
-      background:var(--bg); color:var(--text);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(800px 400px at 20% -10%, rgba(124,58,237,.12), transparent 65%),
+        radial-gradient(900px 450px at 120% 0%, rgba(37,99,235,.10), transparent 60%),
+        radial-gradient(700px 400px at -10% 60%, rgba(6,182,212,.10), transparent 65%),
+        var(--bg);
+      color:var(--ink);
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
 
-    /* ===== Header ===== */
+    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
+    .center{ text-align:center; }
+
+    /* ========================
+       Header (centred)
+    ========================= */
     header{
       position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(180%) blur(14px);
-      background:rgba(245,245,247,.72);
+      background:rgba(246,247,251,.75);
+      backdrop-filter:saturate(180%) blur(12px);
       border-bottom:1px solid var(--line);
     }
-    .nav{
-      height:64px; display:flex; align-items:center; justify-content:space-between;
-    }
-    .brand{font-weight:700; letter-spacing:-.2px}
-    nav{display:flex; gap:24px}
-    nav a{color:var(--muted); font-weight:600}
-    nav a:hover{color:var(--text)}
+    .nav{display:grid; place-items:center; gap:8px; padding:16px 0;}
+    .brand{font-weight:800; letter-spacing:-.2px;}
+    .sub{color:var(--muted); font-size:14px}
+    .menu{display:flex; gap:22px; flex-wrap:wrap; justify-content:center; align-items:center}
+    .menu a{color:var(--muted); font-weight:600}
+    .menu a:hover{color:var(--ink)}
     .cta{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 16px; border-radius:12px; font-weight:600;
-      background:var(--text); color:#fff;
+      padding:10px 16px; border-radius:12px; font-weight:700;
+      background:var(--ink); color:#fff;
     }
     .cta:hover{opacity:.9}
 
-    /* ===== Sections ===== */
-    section{padding:88px 0}
-    .section-head{
-      position:sticky; top:64px; z-index:10; background:linear-gradient(#f5f5f7 65%, rgba(245,245,247,0));
-      padding:24px 0 18px; margin-bottom:10px; border-bottom:1px solid var(--line);
-      backdrop-filter:saturate(180%) blur(6px);
-    }
+    /* ========================
+       Sections
+    ========================= */
+    section{padding:96px 0}
+    .section-head{margin-bottom:24px}
     h1,h2{margin:0}
-    h1{font-size: clamp(36px, 5vw, 56px); line-height:1.02; letter-spacing:-.02em}
-    h2{font-size: clamp(22px, 3vw, 28px); color:var(--muted); font-weight:600}
-    p{margin:0; color:var(--muted); font-size:18px}
+    h1{font-size: clamp(36px, 5vw, 56px); line-height:1.03; letter-spacing:-.02em}
+    h2{font-size: clamp(20px, 2.4vw, 24px); color:var(--muted); font-weight:600}
+    .accent-line{height:4px; width:120px; border-radius:999px; background:var(--grad); margin:16px auto 0}
 
-    /* Cards / tiles */
+    /* ========================
+       Cards / Tiles (centred)
+    ========================= */
     .grid{display:grid; gap:24px}
     .two{grid-template-columns:1fr 1fr}
     .three{grid-template-columns:repeat(3,1fr)}
     @media (max-width:960px){ .two,.three{grid-template-columns:1fr} }
 
     .card{
-      background:var(--surface); border:1px solid var(--line);
-      border-radius:var(--radius); padding:24px; box-shadow:var(--shadow);
+      background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+      padding:24px; box-shadow:var(--shadow); text-align:center;
     }
+    .chip{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:6px 12px; border-radius:999px; background:#fff; border:1px solid var(--line);
+      box-shadow:0 8px 24px rgba(16,24,40,.04); color:var(--muted); font-weight:600; font-size:14px;
+    }
+
     .tile{
-      background:var(--surface); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
+      background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); text-align:center;
     }
     .tile-media{
       aspect-ratio:16/9;
       background:
         linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0)),
-        radial-gradient(600px 240px at 20% 0%, rgba(0,113,227,.18), transparent 55%),
-        radial-gradient(600px 240px at 80% 0%, rgba(0,0,0,.06), transparent 55%),
-        #dfe2e6;
+        radial-gradient(600px 260px at 20% 0%, rgba(124,58,237,.20), transparent 55%),
+        radial-gradient(600px 260px at 80% 10%, rgba(37,99,235,.18), transparent 55%),
+        radial-gradient(700px 260px at 50% 100%, rgba(244,63,94,.16), transparent 55%),
+        #e7e9ee;
     }
-    .tile-body{display:flex; align-items:center; justify-content:space-between; padding:16px 18px}
-    .btn-link{color:var(--accent); font-weight:700}
+    .tile-body{display:grid; gap:8px; padding:16px 18px}
+    .btn-link{font-weight:800; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
     .btn-link:hover{text-decoration:underline}
 
-    /* Subtle accent line */
-    .accent-line{
-      height:3px; width:96px; border-radius:999px; background:var(--accent); margin-top:14px;
-    }
-
-    /* ===== Motion (scroll reveal) ===== */
-    .reveal{opacity:0; transform:translateY(20px) scale(.98); filter:saturate(.9);
-            transition:opacity .8s cubic-bezier(.2,.6,.2,1), transform .8s cubic-bezier(.2,.6,.2,1), filter .8s}
+    /* ========================
+       Motion (reveal + micro parallax)
+    ========================= */
+    .reveal{opacity:0; transform:translateY(24px) scale(.98); filter:saturate(.9);
+            transition:opacity .9s cubic-bezier(.2,.6,.2,1), transform .9s cubic-bezier(.2,.6,.2,1), filter .9s}
     .reveal.in{opacity:1; transform:none; filter:none}
-    .delay1{transition-delay:.06s}.delay2{transition-delay:.12s}.delay3{transition-delay:.18s}
-
-    /* Parallax micro-shift for media blocks */
+    .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
     [data-parallax]{will-change:transform; transform:translateY(0)}
-    @media (prefers-reduced-motion:reduce){
-      .reveal{opacity:1; transform:none}
-      [data-parallax]{transform:none}
-    }
+    @media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none} [data-parallax]{transform:none} }
 
-    /* Footer */
+    /* ========================
+       Footer
+    ========================= */
     footer{padding:40px 0; border-top:1px solid var(--line); color:var(--muted)}
-    .footer-links{display:flex; gap:16px; flex-wrap:wrap}
+    .footer-links{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+
+    /* Fun gradient stroke for headings on hover (subtle delight) */
+    .stroke:hover{
+      background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; cursor:default;
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header (all centred) -->
   <header>
-    <div class="container nav">
-      <div class="brand">Digital Brand Exposure</div>
-      <nav>
+    <div class="container nav center">
+      <div>
+        <div class="brand">Digital Brand Exposure</div>
+        <div class="sub">Video that makes your business look unmissable</div>
+      </div>
+      <nav class="menu">
         <a href="#services">Works We Do</a>
         <a href="#projects">Past Projects</a>
         <a href="#contact">Contact</a>
@@ -130,109 +157,113 @@
   </header>
 
   <main>
-    <!-- SECTION: Works We Do -->
-    <section id="services">
+    <!-- =======================
+         WORKS WE DO
+    ======================== -->
+    <section id="services" class="center">
       <div class="container">
         <div class="section-head">
-          <h1 class="reveal">Video that makes your business look unmissable.</h1>
-          <h2 class="reveal delay1">We create premium, scroll-stopping content that elevates perception and moves customers to act.</h2>
-          <div class="accent-line reveal delay2"></div>
+          <h1 class="reveal stroke">We create video that elevates perception — and moves customers to act.</h1>
+          <h2 class="reveal d1">Polished, scroll-stopping content that makes people think: “this brand is the real deal.”</h2>
+          <div class="accent-line reveal d2"></div>
         </div>
 
         <div class="grid two">
           <div class="card reveal">
-            <h3 style="margin:0 0 8px;font-size:24px">Brand Films</h3>
-            <p>Signature films that give your business a modern, confident presence — the piece that makes people say “wow.”</p>
+            <div class="chip" style="margin-bottom:10px">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--c1)"></span> Brand Films
+            </div>
+            <p style="margin-bottom:10px">Signature pieces that define how you’re seen — modern, confident, unmistakably premium.</p>
+            <p style="color:var(--muted)">Typical deliverables: 45–90s hero + cutdowns, captions, web-optimised export.</p>
           </div>
-          <div class="card reveal delay1">
-            <h3 style="margin:0 0 8px;font-size:24px">Product Spots</h3>
-            <p>Crisp, desire-building visuals that make what you sell feel like the obvious choice.</p>
+          <div class="card reveal d1">
+            <div class="chip" style="margin-bottom:10px">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--c2)"></span> Product Spots
+            </div>
+            <p style="margin-bottom:10px">Crisp, desire-building visuals that make what you sell feel like the obvious choice.</p>
+            <p style="color:var(--muted)">Deliverables: 15–30s variants for web, social, and ad placements.</p>
           </div>
-          <div class="card reveal delay2">
-            <h3 style="margin:0 0 8px;font-size:24px">Social Reels</h3>
-            <p>Short, punchy edits for feeds and stories — built to earn attention in seconds and carry your look everywhere.</p>
+          <div class="card reveal d2">
+            <div class="chip" style="margin-bottom:10px">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--c3)"></span> Social Reels
+            </div>
+            <p style="margin-bottom:10px">Short, punchy edits that win attention in seconds and carry your look everywhere.</p>
+            <p style="color:var(--muted)">Deliverables: 3–6 cuts per concept, platform-specific ratios, subtitles.</p>
           </div>
-          <div class="card reveal delay3">
-            <h3 style="margin:0 0 8px;font-size:24px">Performance Edits</h3>
-            <p>Direct-response creative that looks premium and clicks into measurable growth across paid and organic.</p>
+          <div class="card reveal d3">
+            <div class="chip" style="margin-bottom:10px">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--c4)"></span> Performance Edits
+            </div>
+            <p style="margin-bottom:10px">Direct-response creative that looks premium and plugs into measurable growth.</p>
+            <p style="color:var(--muted)">Deliverables: Ad-ready variations, hooks testing pack, end-card options.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION: Past Projects -->
-    <section id="projects">
+    <!-- =======================
+         PAST PROJECTS
+    ======================== -->
+    <section id="projects" class="center">
       <div class="container">
         <div class="section-head">
-          <h1 class="reveal">Past Projects</h1>
-          <h2 class="reveal delay1">A selection of recent work. Ask for private links to full cuts.</h2>
-          <div class="accent-line reveal delay2"></div>
+          <h1 class="reveal stroke">Past Projects</h1>
+          <h2 class="reveal d1">A few highlights. Ask for private links to full cuts.</h2>
+          <div class="accent-line reveal d2"></div>
         </div>
 
         <div class="grid three">
           <!-- Project 1 -->
           <article class="tile reveal">
-            <div class="tile-media" data-parallax data-speed="0.25" aria-label="Project placeholder"></div>
+            <div class="tile-media" data-parallax data-speed="0.24" aria-label="Project placeholder"></div>
             <div class="tile-body">
-              <div>
-                <div style="font-size:14px; color:var(--muted)">Case study</div>
-                <strong>Launch Film — D2C</strong>
-              </div>
+              <div style="color:var(--muted);font-size:14px">Case study</div>
+              <strong>Launch Film — D2C</strong>
               <a class="btn-link" href="#contact">Request link</a>
             </div>
           </article>
           <!-- Project 2 -->
-          <article class="tile reveal delay1">
-            <div class="tile-media" data-parallax data-speed="0.2" aria-label="Project placeholder"></div>
+          <article class="tile reveal d1">
+            <div class="tile-media" data-parallax data-speed="0.22" aria-label="Project placeholder"></div>
             <div class="tile-body">
-              <div>
-                <div style="font-size:14px; color:var(--muted)">Case study</div>
-                <strong>Service Promo — Local</strong>
-              </div>
+              <div style="color:var(--muted);font-size:14px">Case study</div>
+              <strong>Service Promo — Local</strong>
               <a class="btn-link" href="#contact">Request link</a>
             </div>
           </article>
           <!-- Project 3 -->
-          <article class="tile reveal delay2">
-            <div class="tile-media" data-parallax data-speed="0.18" aria-label="Project placeholder"></div>
+          <article class="tile reveal d2">
+            <div class="tile-media" data-parallax data-speed="0.20" aria-label="Project placeholder"></div>
             <div class="tile-body">
-              <div>
-                <div style="font-size:14px; color:var(--muted)">Case study</div>
-                <strong>Performance Edits — YouTube</strong>
-              </div>
+              <div style="color:var(--muted);font-size:14px">Case study</div>
+              <strong>Performance Edits — YouTube</strong>
               <a class="btn-link" href="#contact">Request link</a>
             </div>
           </article>
           <!-- Project 4 -->
           <article class="tile reveal">
-            <div class="tile-media" data-parallax data-speed="0.22" aria-label="Project placeholder"></div>
+            <div class="tile-media" data-parallax data-speed="0.26" aria-label="Project placeholder"></div>
             <div class="tile-body">
-              <div>
-                <div style="font-size:14px; color:var(--muted)">Case study</div>
-                <strong>Brand Film — Hospitality</strong>
-              </div>
+              <div style="color:var(--muted);font-size:14px">Case study</div>
+              <strong>Brand Film — Hospitality</strong>
               <a class="btn-link" href="#contact">Request link</a>
             </div>
           </article>
           <!-- Project 5 -->
-          <article class="tile reveal delay1">
-            <div class="tile-media" data-parallax data-speed="0.26" aria-label="Project placeholder"></div>
+          <article class="tile reveal d1">
+            <div class="tile-media" data-parallax data-speed="0.24" aria-label="Project placeholder"></div>
             <div class="tile-body">
-              <div>
-                <div style="font-size:14px; color:var(--muted)">Case study</div>
-                <strong>Product Spotlight — Retail</strong>
-              </div>
+              <div style="color:var(--muted);font-size:14px">Case study</div>
+              <strong>Product Spotlight — Retail</strong>
               <a class="btn-link" href="#contact">Request link</a>
             </div>
           </article>
           <!-- Project 6 -->
-          <article class="tile reveal delay2">
-            <div class="tile-media" data-parallax data-speed="0.2" aria-label="Project placeholder"></div>
+          <article class="tile reveal d2">
+            <div class="tile-media" data-parallax data-speed="0.22" aria-label="Project placeholder"></div>
             <div class="tile-body">
-              <div>
-                <div style="font-size:14px; color:var(--muted)">Case study</div>
-                <strong>Social Reel Set — Multi-cut</strong>
-              </div>
+              <div style="color:var(--muted);font-size:14px">Case study</div>
+              <strong>Social Reel Set — Multi-cut</strong>
               <a class="btn-link" href="#contact">Request link</a>
             </div>
           </article>
@@ -240,16 +271,18 @@
       </div>
     </section>
 
-    <!-- SECTION: Contact -->
-    <section id="contact">
+    <!-- =======================
+         CONTACT
+    ======================== -->
+    <section id="contact" class="center">
       <div class="container">
         <div class="section-head">
-          <h1 class="reveal">Contact</h1>
-          <h2 class="reveal delay1">Two minutes now → a concepts deck in your inbox.</h2>
-          <div class="accent-line reveal delay2"></div>
+          <h1 class="reveal stroke">Contact</h1>
+          <h2 class="reveal d1">Two minutes now → a concepts deck in your inbox.</h2>
+          <div class="accent-line reveal d2"></div>
         </div>
 
-        <!-- Mailto keeps it backend-free on GitHub Pages. Swap to Formspree later if preferred. -->
+        <!-- Mailto keeps it backend-free on GitHub Pages. Swap to Formspree anytime. -->
         <form class="card reveal" action="mailto:hello@dbestudio.co.uk" method="POST" enctype="text/plain">
           <div class="grid two" style="gap:16px; margin-bottom:16px">
             <input name="name" required placeholder="Name" style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:#fff">
@@ -257,7 +290,7 @@
           </div>
           <input name="company" placeholder="Company / Brand" style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:#fff; width:100%; margin-bottom:16px">
           <textarea name="brief" rows="6" placeholder="What outcome do you want? Any styles you like? Deadlines?" style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:#fff; width:100%;"></textarea>
-          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px">
+          <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:16px">
             <button type="submit" class="cta">Send enquiry</button>
             <a class="btn-link" href="mailto:hello@dbestudio.co.uk">Or email us directly</a>
           </div>
@@ -266,8 +299,8 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+  <footer class="center">
+    <div class="container" style="display:grid; gap:8px; place-items:center">
       <div>© <span id="year"></span> Digital Brand Exposure</div>
       <div class="footer-links">
         <a href="#services">Works We Do</a>
@@ -291,12 +324,12 @@
     const clamp = (n, min, max)=> Math.min(Math.max(n, min), max);
     const media = Array.from(document.querySelectorAll('[data-parallax]'));
     const onScroll = ()=>{
-      const vh = window.innerHeight;
+      const vh = innerHeight;
       media.forEach(m=>{
         const r = m.getBoundingClientRect();
-        const progress = clamp((vh - r.top) / (vh + r.height), 0, 1); // 0..1
-        const speed = parseFloat(m.dataset.speed || 0.2);
-        m.style.transform = `translateY(${(1-progress)*16*speed}px)`;
+        const progress = clamp((vh - r.top) / (vh + r.height), 0, 1);
+        const speed = parseFloat(m.dataset.speed || 0.22);
+        m.style.transform = `translateY(${(1-progress)*18*speed}px)`;
       });
     };
     onScroll(); addEventListener('scroll', onScroll, {passive:true});
