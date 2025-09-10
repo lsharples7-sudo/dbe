@@ -4,23 +4,30 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Digital Brand Exposure — Make your brand unmissable</title>
-  <meta name="description" content="Premium video and imagery that elevate how customers see you — and drive action. Showcase films, product spots, and brand image campaigns." />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Premium video and imagery for brands that want to look established and get noticed. Showcase films, product spots, and brand image campaigns." />
+  <meta name="theme-color" content="#0c1022" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0c1022;               /* deep navy */
-      --ink:#f7f9fc;              /* near-white */
-      --muted:#a9b1c7;            /* soft grey-blue */
+      /* Canvas */
+      --bg:#0c1022;                 /* deep navy */
+      --ink:#f7f9fc;                /* near-white */
+      --muted:#a9b1c7;              /* soft grey-blue */
       --line:rgba(255,255,255,.12);
 
-      --violet:#7c3aed;
-      --blue:#2563eb;
-      --cyan:#06b6d4;
-      --rose:#f43f5e;
-      --grad:linear-gradient(135deg, var(--violet), var(--blue), var(--cyan), var(--rose));
+      /* Accent palette (can be switched via JS) */
+      --c1:#7c3aed;                 /* violet */
+      --c2:#2563eb;                 /* blue */
+      --c3:#06b6d4;                 /* cyan */
+      --c4:#f43f5e;                 /* rose */
+      --grad:linear-gradient(135deg, var(--c1), var(--c2), var(--c3), var(--c4));
+
+      /* Background glow colours (also switched via JS) */
+      --bgc1:rgba(124,58,237,.14);
+      --bgc2:rgba(37,99,235,.12);
+      --bgc3:rgba(6,182,212,.12);
 
       --panel:rgba(255,255,255,.06);
       --panel-strong:rgba(255,255,255,.08);
@@ -36,13 +43,12 @@
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       color:var(--ink);
       background:
-        radial-gradient(800px 350px at 20% 0%, rgba(124,58,237,.12), transparent 60%),
-        radial-gradient(900px 400px at 100% 0%, rgba(37,99,235,.10), transparent 60%),
-        radial-gradient(800px 500px at 0% 80%, rgba(6,182,212,.10), transparent 65%),
+        radial-gradient(800px 350px at 20% 0%, var(--bgc1), transparent 60%),
+        radial-gradient(900px 400px at 100% 0%, var(--bgc2), transparent 60%),
+        radial-gradient(800px 500px at 0% 80%, var(--bgc3), transparent 65%),
         var(--bg);
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
-
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:var(--max);margin:0 auto;padding:0 24px}
@@ -59,23 +65,32 @@
     .menu{display:flex; gap:22px; flex-wrap:wrap; justify-content:center}
     .menu a{color:var(--muted); font-weight:600}
     .menu a:hover{color:#fff}
+
+    /* One hero CTA */
     .cta{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 18px; border-radius:14px; font-weight:800;
-      color:#0b1020; background:var(--grad); border:1px solid rgba(255,255,255,.2);
-      box-shadow:0 8px 28px rgba(0,0,0,.3);
+      padding:14px 22px; border-radius:999px; font-weight:900; letter-spacing:.1px;
+      color:#0b1020; background:var(--grad);
+      position:relative; border:1px solid rgba(255,255,255,.2);
+      box-shadow:0 10px 32px rgba(0,0,0,.35);
+      transition:transform .15s ease, filter .2s ease, box-shadow .2s ease;
     }
-    .link{color:#a8d1ff}
-    .link:hover{text-decoration:underline}
+    .cta:before{
+      content:""; position:absolute; inset:-6px; border-radius:999px; filter:blur(14px);
+      background:var(--grad); opacity:.55; z-index:-1;
+      transition:opacity .2s ease, filter .2s ease;
+    }
+    .cta:hover{transform:translateY(-1px); filter:saturate(1.05); box-shadow:0 16px 40px rgba(0,0,0,.45)}
+    .cta:hover:before{opacity:.75; filter:blur(18px)}
 
     /* Sections */
-    section{padding:clamp(68px, 10vw, 108px) 0}
+    section{padding:clamp(62px, 9vw, 104px) 0}
     h1,h2{margin:0}
     h1{font-size:clamp(34px,5.2vw,60px); line-height:1.04; letter-spacing:-.02em}
     h2{font-size:clamp(18px,2.4vw,22px); color:var(--muted); font-weight:600}
     .accent-line{height:3px; width:100px; border-radius:999px; background:var(--grad); margin:16px auto 0}
 
-    /* Layout helpers */
+    /* Layout */
     .grid{display:grid; gap:22px}
     .two{grid-template-columns:1fr 1fr}
     .three{grid-template-columns:repeat(3,1fr)}
@@ -95,7 +110,7 @@
     }
     .tile-body{display:grid; gap:8px; padding:14px 16px}
 
-    /* Buttons */
+    /* Buttons (secondary) */
     .btn-ghost{
       display:inline-flex; align-items:center; justify-content:center;
       padding:10px 14px; border-radius:12px; border:1px solid var(--line);
@@ -112,10 +127,19 @@
     /* Parallax */
     [data-parallax]{will-change:transform; transform:translateY(0)}
     @media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none} [data-parallax]{transform:none} }
-    
+
     /* Footer */
     footer{padding:40px 0; border-top:1px solid var(--line); color:var(--muted)}
     .footer-links{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+
+    /* Theme chips */
+    .chips{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px;
+      border:1px solid var(--line); background:rgba(255,255,255,.05); color:#dfe8ff; font-weight:700; font-size:14px;
+      cursor:pointer; user-select:none;
+    }
+    .dot{width:12px;height:12px;border-radius:50%;}
   </style>
 </head>
 <body>
@@ -128,26 +152,32 @@
         <a href="#projects">Past Projects</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="cta" href="#contact">Start a project</a>
+      <!-- empty spacer for symmetry on mobile -->
     </div>
   </header>
 
   <main>
-    <!-- HERO — simplified & tidy -->
+    <!-- HERO — one powerful button -->
     <section class="center">
       <div class="container">
         <h1 class="reveal">Make your brand unmissable.</h1>
-        <h2 class="reveal d1">Premium video and imagery that elevate perception — and drive action.</h2>
-        <div class="accent-line reveal d2"></div>
+        <h2 class="reveal d1">Premium video and imagery that make you look established—and get noticed.</h2>
 
-        <div class="reveal d3" style="margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap">
-          <a class="cta" href="#projects">See past projects</a>
-          <a class="btn-ghost" href="#contact">Talk to us</a>
+        <!-- Single CTA -->
+        <div class="reveal d2" style="margin-top:22px;">
+          <a class="cta" href="#contact">Get your concepts deck</a>
+        </div>
+
+        <!-- New: “Pick your vibe” — interactive theme switch -->
+        <div class="reveal d3 chips" aria-label="Pick your vibe">
+          <span class="chip" data-theme="neon"><span class="dot" style="background:#7c3aed"></span>Neon</span>
+          <span class="chip" data-theme="sunset"><span class="dot" style="background:#ff7a59"></span>Sunset</span>
+          <span class="chip" data-theme="royal"><span class="dot" style="background:#4f46e5"></span>Royal</span>
         </div>
       </div>
     </section>
 
-    <!-- WHAT WE DO — shorter, punchier -->
+    <!-- WHAT WE DO — pure, punchy -->
     <section id="services" class="center">
       <div class="container">
         <h1 class="reveal">Works We Do</h1>
@@ -157,23 +187,23 @@
         <div class="grid three" style="margin-top:20px">
           <article class="card reveal">
             <h3>Business Showcase Video</h3>
-            <p>Show who you are in 60–90 seconds. Confident, modern, memorable.</p>
+            <p>Who you are in 60–90 seconds. Confident. Modern. Memorable.</p>
           </article>
 
           <article class="card reveal d1">
             <h3>Product Spotlight Video</h3>
-            <p>Make your product the obvious choice. Clean, desire-building cuts.</p>
+            <p>Make the product the obvious choice. Clean, desire-building cuts.</p>
           </article>
 
           <article class="card reveal d2">
             <h3>Brand Image Campaigns</h3>
-            <p>Consistent images for web & socials. Cohesive, on-brand, scroll-stopping.</p>
+            <p>Consistent visuals for web & socials. Cohesive. On-brand. Premium.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- PAST PROJECTS — 3 tiles with inline SVG images -->
+    <!-- PAST PROJECTS — 3 tiles with palette-aware SVGs -->
     <section id="projects" class="center">
       <div class="container">
         <h1 class="reveal">Past Projects</h1>
@@ -184,13 +214,12 @@
           <!-- Project 1 -->
           <article class="tile reveal">
             <div class="tile-media" data-parallax data-speed="0.22" aria-label="Launch Film — D2C">
-              <!-- Gradient SVG thumbnail -->
               <svg viewBox="0 0 800 450" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
                 <defs>
                   <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#7c3aed"/>
-                    <stop offset="50%" stop-color="#2563eb"/>
-                    <stop offset="100%" stop-color="#06b6d4"/>
+                    <stop offset="0%"  style="stop-color: var(--c1)"/>
+                    <stop offset="50%" style="stop-color: var(--c2)"/>
+                    <stop offset="100%" style="stop-color: var(--c3)"/>
                   </linearGradient>
                   <radialGradient id="rg1" cx="70%" cy="20%" r="60%">
                     <stop offset="0%" stop-color="rgba(255,255,255,.5)"/>
@@ -199,7 +228,6 @@
                 </defs>
                 <rect width="800" height="450" fill="url(#g1)"/>
                 <circle cx="620" cy="90" r="160" fill="url(#rg1)"/>
-                <!-- play icon -->
                 <circle cx="400" cy="225" r="56" fill="rgba(0,0,0,.25)"/>
                 <polygon points="385,195 445,225 385,255" fill="#ffffff"/>
               </svg>
@@ -207,7 +235,7 @@
             <div class="tile-body">
               <div style="color:var(--muted);font-size:14px">Case study</div>
               <strong>Launch Film — D2C</strong>
-              <a class="link" href="#contact">Request link</a>
+              <a class="btn-ghost" href="#contact">Request link</a>
             </div>
           </article>
 
@@ -217,9 +245,9 @@
               <svg viewBox="0 0 800 450" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
                 <defs>
                   <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#06b6d4"/>
-                    <stop offset="50%" stop-color="#2563eb"/>
-                    <stop offset="100%" stop-color="#f43f5e"/>
+                    <stop offset="0%"  style="stop-color: var(--c3)"/>
+                    <stop offset="50%" style="stop-color: var(--c2)"/>
+                    <stop offset="100%" style="stop-color: var(--c4)"/>
                   </linearGradient>
                   <radialGradient id="rg2" cx="35%" cy="15%" r="55%">
                     <stop offset="0%" stop-color="rgba(255,255,255,.5)"/>
@@ -236,7 +264,7 @@
             <div class="tile-body">
               <div style="color:var(--muted);font-size:14px">Case study</div>
               <strong>Service Promo — Local</strong>
-              <a class="link" href="#contact">Request link</a>
+              <a class="btn-ghost" href="#contact">Request link</a>
             </div>
           </article>
 
@@ -246,9 +274,9 @@
               <svg viewBox="0 0 800 450" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
                 <defs>
                   <linearGradient id="g3" x1="0" y1="1" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#2563eb"/>
-                    <stop offset="50%" stop-color="#7c3aed"/>
-                    <stop offset="100%" stop-color="#f43f5e"/>
+                    <stop offset="0%"  style="stop-color: var(--c2)"/>
+                    <stop offset="50%" style="stop-color: var(--c1)"/>
+                    <stop offset="100%" style="stop-color: var(--c4)"/>
                   </linearGradient>
                 </defs>
                 <rect width="800" height="450" fill="url(#g3)"/>
@@ -261,7 +289,7 @@
             <div class="tile-body">
               <div style="color:var(--muted);font-size:14px">Case study</div>
               <strong>Performance Edits — YouTube</strong>
-              <a class="link" href="#contact">Request link</a>
+              <a class="btn-ghost" href="#contact">Request link</a>
             </div>
           </article>
         </div>
@@ -288,7 +316,7 @@
                     style="padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.12); color:#fff; width:100%;"></textarea>
           <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:16px">
             <button type="submit" class="cta">Send enquiry</button>
-            <a class="link" href="mailto:hello@dbestudio.co.uk">Or email us directly</a>
+            <a class="btn-ghost" href="mailto:hello@dbestudio.co.uk">Or email us directly</a>
           </div>
         </form>
       </div>
@@ -307,6 +335,7 @@
   </footer>
 
   <script>
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Reveal on scroll
@@ -328,6 +357,22 @@
       });
     };
     onScroll(); addEventListener('scroll', onScroll, {passive:true});
+
+    // Theme switcher (Neon / Sunset / Royal)
+    const sets = {
+      neon:   {c1:'#7c3aed', c2:'#2563eb', c3:'#06b6d4', c4:'#f43f5e', bg1:'rgba(124,58,237,.14)', bg2:'rgba(37,99,235,.12)', bg3:'rgba(6,182,212,.12)'},
+      sunset: {c1:'#ff7a59', c2:'#ff4d6d', c3:'#ff9f1c', c4:'#ff5964', bg1:'rgba(255,122,89,.16)', bg2:'rgba(255,77,109,.13)', bg3:'rgba(255,159,28,.12)'},
+      royal:  {c1:'#4f46e5', c2:'#0ea5e9', c3:'#22c55e', c4:'#a855f7', bg1:'rgba(79,70,229,.16)',  bg2:'rgba(14,165,233,.13)', bg3:'rgba(34,197,94,.12)'}
+    };
+    function setTheme(name){
+      const s = sets[name]; if(!s) return;
+      const r = document.documentElement.style;
+      r.setProperty('--c1', s.c1); r.setProperty('--c2', s.c2); r.setProperty('--c3', s.c3); r.setProperty('--c4', s.c4);
+      r.setProperty('--bgc1', s.bg1); r.setProperty('--bgc2', s.bg2); r.setProperty('--bgc3', s.bg3);
+    }
+    document.querySelectorAll('.chip').forEach(chip=>{
+      chip.addEventListener('click', ()=> setTheme(chip.dataset.theme));
+    });
   </script>
 </body>
 </html>
