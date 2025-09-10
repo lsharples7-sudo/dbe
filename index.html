@@ -12,7 +12,6 @@
 <style>
 /* ============ Tokens ============ */
 :root{
-  --bg:#0b0f14;
   --text:#f3f6fb;
   --muted:#9aa3b2;
   --line:rgba(255,255,255,.10);
@@ -22,8 +21,8 @@
   --accent-3:#ff4d6d;
   --grad:linear-gradient(135deg,var(--accent-1),var(--accent-2));
 
-  --panel:rgba(255,255,255,.04);
-  --panel-strong:rgba(255,255,255,.06);
+  --panel:rgba(255,255,255,.05);
+  --panel-strong:rgba(255,255,255,.08);
 
   --radius:18px;
   --shadow:0 20px 60px rgba(0,0,0,.35);
@@ -36,13 +35,23 @@ html,body{margin:0}
 body{
   font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color:var(--text);
+
+  /* SITE-WIDE GRADIENT BACKGROUND (animated, subtle, performance-friendly) */
   background:
-    radial-gradient(1000px 500px at 10% -10%, rgba(0,224,255,.10), transparent 55%),
-    radial-gradient(1200px 600px at 110% 0%, rgba(139,92,246,.10), transparent 55%),
-    radial-gradient(900px 600px at 50% 120%, rgba(255,77,109,.08), transparent 60%),
-    var(--bg);
+    radial-gradient(1200px 800px at 80% -10%, rgba(139,92,246,.10), transparent 60%),
+    linear-gradient(130deg, #0b0f14 0%, #0e1630 30%, #11224a 60%, #0e1a3a 100%);
+  background-size: 200% 200%, 200% 200%;
+  animation: gradientShift 28s ease-in-out infinite;
+  background-attachment: fixed, fixed; /* makes it feel deep while scrolling */
+
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
+@keyframes gradientShift{
+  0%   { background-position: 0% 50%, 0% 50% }
+  50%  { background-position: 100% 50%, 100% 50% }
+  100% { background-position: 0% 50%, 0% 50% }
+}
+
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .container{max-width:var(--max);margin:0 auto;padding:0 22px}
@@ -75,11 +84,16 @@ h1{margin:0; font-size:clamp(34px,6vw,78px); line-height:1.03; letter-spacing:-.
 h2{margin:12px 0 0; font-size:clamp(18px,2.2vw,22px); color:var(--muted); font-weight:600}
 
 /* glossy gradient headline */
-.gloss{background:linear-gradient(180deg,#fff 0%,#e7ecff 40%,#b9c0d8 65%,#9aa3b2 100%);
-  background-clip:text; -webkit-background-clip:text; color:transparent; position:relative;}
-.gloss::after{content:""; position:absolute; inset:0;
+.gloss{
+  background:linear-gradient(180deg,#fff 0%,#e7ecff 40%,#b9c0d8 65%,#9aa3b2 100%);
+  background-clip:text; -webkit-background-clip:text; color:transparent; position:relative;
+}
+.gloss::after{
+  content:""; position:absolute; inset:0;
   background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.45) 40%, transparent 60%);
-  transform:translateX(-120%); animation:shine 6s ease-in-out infinite; background-clip:text; -webkit-background-clip:text;}
+  transform:translateX(-120%); animation:shine 6s ease-in-out infinite;
+  background-clip:text; -webkit-background-clip:text;
+}
 @keyframes shine{0%,15%{transform:translateX(-120%)}35%{transform:translateX(120%)}100%{transform:translateX(120%)}}
 
 /* hero CTA */
@@ -112,7 +126,7 @@ h2{margin:12px 0 0; font-size:clamp(18px,2.2vw,22px); color:var(--muted); font-w
 .card p{margin:0; color:var(--muted)}
 .badge{display:inline-flex; gap:8px; align-items:center; justify-content:center;
   padding:6px 12px; border-radius:999px; border:1px solid var(--line);
-  background:rgba(255,255,255,.05); color:#dfe5ff; font-weight:700; font-size:13px;}
+  background:rgba(255,255,255,.06); color:#e6ecff; font-weight:700; font-size:13px;}
 .dot{width:10px;height:10px;border-radius:50%}
 
 /* ============ Past Projects (stacked) ============ */
@@ -216,18 +230,12 @@ footer{padding:40px 0; border-top:1px solid var(--line); color:var(--muted)}
           <div class="thumb">
             <div class="zoom">
               <svg viewBox="0 0 1200 675" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="var(--accent-1)"/><stop offset="60%" stop-color="var(--accent-2)"/><stop offset="100%" stop-color="var(--accent-3)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="1200" height="675" fill="url(#gA)"/>
-                <circle cx="950" cy="120" r="160" fill="rgba(255,255,255,.18)"/>
+                <defs><linearGradient id="gA" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="var(--accent-1)"/><stop offset="60%" stop-color="var(--accent-2)"/><stop offset="100%" stop-color="var(--accent-3)"/></linearGradient></defs>
+                <rect width="1200" height="675" fill="url(#gA)"/><circle cx="950" cy="120" r="160" fill="rgba(255,255,255,.18)"/>
               </svg>
             </div>
-            <a class="play" href="#contact" title="Request link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-            </a>
+            <a class="play" href="#contact" title="Request link"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></a>
           </div>
           <div class="caption">
             <div><strong>Launch Film — D2C</strong><br><small>Case study</small></div>
@@ -240,18 +248,12 @@ footer{padding:40px 0; border-top:1px solid var(--line); color:var(--muted)}
           <div class="thumb">
             <div class="zoom">
               <svg viewBox="0 0 1200 675" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <linearGradient id="gB" x1="1" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="var(--accent-3)"/><stop offset="50%" stop-color="var(--accent-2)"/><stop offset="100%" stop-color="var(--accent-1)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="1200" height="675" fill="url(#gB)"/>
-                <rect x="840" y="80" width="260" height="210" rx="20" fill="rgba(255,255,255,.16)"/>
+                <defs><linearGradient id="gB" x1="1" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="var(--accent-3)"/><stop offset="50%" stop-color="var(--accent-2)"/><stop offset="100%" stop-color="var(--accent-1)"/></linearGradient></defs>
+                <rect width="1200" height="675" fill="url(#gB)"/><rect x="840" y="80" width="260" height="210" rx="20" fill="rgba(255,255,255,.16)"/>
               </svg>
             </div>
-            <a class="play" href="#contact" title="Request link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-            </a>
+            <a class="play" href="#contact" title="Request link"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></a>
           </div>
           <div class="caption">
             <div><strong>Service Promo — Local</strong><br><small>Case study</small></div>
@@ -264,18 +266,12 @@ footer{padding:40px 0; border-top:1px solid var(--line); color:var(--muted)}
           <div class="thumb">
             <div class="zoom">
               <svg viewBox="0 0 1200 675" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <linearGradient id="gC" x1="0" y1="1" x2="1" y2="0">
-                    <stop offset="0%" stop-color="var(--accent-2)"/><stop offset="60%" stop-color="var(--accent-1)"/><stop offset="100%" stop-color="var(--accent-3)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="1200" height="675" fill="url(#gC)"/>
-                <rect x="720" y="430" width="300" height="150" rx="18" fill="rgba(255,255,255,.16)"/>
+                <defs><linearGradient id="gC" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0%" stop-color="var(--accent-2)"/><stop offset="60%" stop-color="var(--accent-1)"/><stop offset="100%" stop-color="var(--accent-3)"/></linearGradient></defs>
+                <rect width="1200" height="675" fill="url(#gC)"/><rect x="720" y="430" width="300" height="150" rx="18" fill="rgba(255,255,255,.16)"/>
               </svg>
             </div>
-            <a class="play" href="#contact" title="Request link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-            </a>
+            <a class="play" href="#contact" title="Request link"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></a>
           </div>
           <div class="caption">
             <div><strong>Performance Edits — YouTube</strong><br><small>Case study</small></div>
